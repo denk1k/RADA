@@ -335,9 +335,11 @@ section {
   width: 100%; /* Max width set by parent */
 }
 
-.promoImage {
+.scrollDown {
   position: absolute;
   bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
   width: 59px;
   /* Assuming this is specific to intro, maybe needs adjustment if reused */
 }
@@ -762,7 +764,7 @@ section {
   .detailsWrapper { width: 50%; }
   .textImageWrapper { margin-bottom: 3.5rem; }
   .subtitleText { width: 80%; font-size: 1rem; }
-  .promoImage { bottom: 0.85rem; }
+  .scrollDown { bottom: 0.85rem; }
   /* Therapy Specific */
   .therapyLinksWrapper { margin-top: -10px; }
   /*.linkBtn { height: 40px; } !* Specific button height *!*/
