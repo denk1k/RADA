@@ -1,13 +1,15 @@
 {% extends "base.njk" %}
 
-{# Override or add blocks from base.njk if needed #}
-
-{# Example: Replace the main content block #}
-{% block content %}
-<article class="event-page-content" style="padding: 2rem 5.71%; color: var(--text-color-dark);">
+{# Override the main_content block from base.njk #}
+{% block main_content %}
+<article class="event-page-content" style="padding: 2rem 5.71%; color: var(--text-color-dark); margin-top: 100px;"> {# Add margin-top to avoid overlap with fixed navbar #}
   <h1>{{ title }}</h1>
-  <p><time datetime="{{ date | readableISODate | slugify }}">{{ date | readableDate }}</time></p>
+  {# Check if date exists before displaying #}
+  {% if date %}
+    <p><time datetime="{{ date | readableISODate | slugify }}">{{ date | readableDate }}</time></p>
+  {% endif %}
   <hr style="margin: 1rem 0; border-top: 1px solid var(--separator-color);">
+  {# Display the main markdown content #}
   {{ content | safe }}
 </article>
 {% endblock %}
