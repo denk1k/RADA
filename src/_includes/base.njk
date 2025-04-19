@@ -10,7 +10,7 @@
   {# Add other meta tags as needed, potentially from settings or page front matter #}
 </head>
 
-<body class="flex-column">
+<body class="flex-column preload">
 <!-- Navbar -->
 <div class="imageTextBlock">
   <div class="imageWrapper">
@@ -242,6 +242,13 @@
 
     // Run on load
     handleScroll();
+  });
+</script>
+
+{# --- Preload Class Removal Script --- #}
+<script>
+  window.addEventListener('load', () => {
+    document.body.classList.remove('preload');
   });
 </script>
 

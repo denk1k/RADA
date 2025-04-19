@@ -175,9 +175,6 @@ section {
 }
 
 /* --- Utility --- */
-.hiddenMobile {
-  /* Kept for specific use */
-}
 .zUp {
   position: relative; /* Ensure z-index works */
   z-index: 1; /* Bring text above gradient */
@@ -223,6 +220,11 @@ section {
   /* Animation styles */
   opacity: 0;
   transform: translateX(-30px);
+  /* Transition only when preload class is NOT present */
+  transition: none; /* Disable transition initially */
+}
+
+body:not(.preload) .introImage {
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
@@ -233,6 +235,11 @@ section {
   /* Animation styles */
   /* Adjust this translateX based on precise logo width and desired centering effect */
   transform: translateX(calc(-87.96vw / 2 + 50%)); /* Approximate adjustment  + 22px */
+  /* Transition only when preload class is NOT present */
+  transition: none; /* Disable transition initially */
+}
+
+body:not(.preload) .navWrapper {
   transition: transform 0.5s ease-in-out;
 }
 
@@ -502,12 +509,6 @@ section {
   color: var(--text-color-dark);
 }
 /* Hover state for span is covered by inheriting color */
-
-/* Specific button instances if needed */
-.joinBlockWrapper .simple-button-base {
-  /* Specific margin or styles if different from therapy */
-  /*margin-top: 25px; !* Override base *!*/
-}
 
 /* Therapy Section Link Button */
 .linkBtn {
