@@ -1,12 +1,12 @@
 logo: /static/img/rada-logo.png
 description: RADA Studija - Vieta, kur radīt, mācīties un just.
-url: https://github.com/tjgilpin/11ty-decap-netlify
-name: Starter template for Eleventy and Decap CMS
-locale: en_GB
-title: Starter template for Eleventy and Decap CMS
-image: /static/img/496404201.jpg
+url: radastudija.netlify.app
+name: RADA Studija
+locale: lv_LV
+title: RADA Studija
+image: /static/img/rada-logo.png
 width: 1280
 height: 630
-alt: Screenshot of website at https://github.com/tjgilpin/11ty-decap-netlify
+alt: RADA
 posts: Articles
 postsorder: 100
