@@ -878,3 +878,7 @@ section {
     width: auto; /* Adjust width if needed */
   }
 }
+.eventH1{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
