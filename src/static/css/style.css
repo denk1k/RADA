@@ -631,6 +631,7 @@ section {
   /*max-width: 1200px; !* Add a max-width *!*/
   z-index: 1; /* Above gradient */
   /* padding: 40px 0; Add padding */
+  margin: 10% auto 10%;
 }
 
 .eventsTitle {
@@ -801,7 +802,7 @@ section {
   /* .therapyDescription { margin-top: 20px; } */
   .therapyLinksWrapper { column-gap: 15px; }
   .linkBtn { column-gap: 15px; } /* Matches wrapper */
-  .eventsMainWrapper { margin: auto; /* Centered */ }
+  /* .eventsMainWrapper { margin: auto; Centered } */
   .eventColorBar { min-height: 12px; }
   .eventDate { font-size: 0.75rem; }
   .eventTitle { font-size: 1.125rem; } /* Jumps back up? Verify */
