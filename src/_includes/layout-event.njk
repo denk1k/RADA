@@ -1,0 +1,13 @@
+{% extends "base.njk" %}
+
+{# Override or add blocks from base.njk if needed #}
+
+{# Example: Replace the main content block #}
+{% block content %}
+<article class="event-page-content" style="padding: 2rem 5.71%; color: var(--text-color-dark);">
+  <h1>{{ title }}</h1>
+  <p><time datetime="{{ date | readableISODate | slugify }}">{{ date | readableDate }}</time></p>
+  <hr style="margin: 1rem 0; border-top: 1px solid var(--separator-color);">
+  {{ content | safe }}
+</article>
+{% endblock %}

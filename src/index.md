@@ -1,18 +1,7 @@
 ---
-layout: layout.njk
-script: redirect.js
+layout: base.njk
+title: RADA Studija Home # You can change this title
+# Add other front matter variables if needed, like description
 ---
 
-# This is a Heading h1
-
-## This is a Heading h2
-
-###### This is a Heading h6
-
-## Emphasis
-
-*This text will be italic*\
-*This will also be italic*
-
-**This text will be bold**\
-**This will also be bold**
+{# Content is now handled by the base.njk layout #}

@@ -52,6 +52,21 @@ collections:
           - { label: "Body", name: "body", widget: "markdown" } 
           - { label: "Posts URL", name: "posts", widget: "string" }
           - { label: "Navigation Order", name: "postsorder", widget: "number" }        
+  - label: "Events"
+    name: "events"
+    folder: "src/events" # Folder where event markdown files will be stored
+    create: true
+    editor:
+      preview: false # Keep preview off for now
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Event Date", name: "date", widget: "datetime" }
+      - { label: "Short Description (for card)", name: "description", widget: "string" }
+      # Optional: Add an image field if needed for the event card or page
+      # - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Event Details (Main Content)", name: "body", widget: "markdown" }
+      # Optional: Add navigation order if needed, similar to pages
+      # - { label: "Navigation Order", name: "order", widget: "number", default: 0 }
   - label: "Settings"
     name: "settings"
     editor:
