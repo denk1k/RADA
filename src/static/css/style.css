@@ -211,6 +211,8 @@ section {
   align-items: center;
   margin: 12px auto;
   width: 87.96%;
+  height: var(--navheight);
+  max-width: 100vw; /* Prevent overflow */
   position: relative; /* For transform calculations */
 }
 
@@ -481,7 +483,7 @@ section {
   font-size: 1rem;
   font-weight: 400; /* Base weight */
   text-align: center;
-  margin-top: 20px; /* Common margin */
+  margin-top: 15px; /* Common margin */
   width: max-content; /* Fit content width */
   opacity: 1;
   mix-blend-mode: normal; /* Existing */
@@ -847,7 +849,7 @@ section {
   }
   .section-description-base,
   .therapyDescription {
-    font-size: 1.2rem; /* Larger descriptions? Verify this */
+    font-size: 1rem; /* Larger descriptions? Verify this */
   }
   .detailsWrapper { width: 70%; }
   .subtitleText { font-size: 1.2rem; } /* Consistent with description? */
@@ -878,6 +880,17 @@ section {
   .introImage, .navWrapper { /* Overrides for tiny layout if needed */
     position: relative; /* Was unset? */
     width: auto; /* Adjust width if needed */
+  }
+}
+@media (max-width: 390px){
+  .imageWrapper {
+    column-gap: 18px;
+  }
+  .introImage{
+    height: 35px;
+  }
+  .navWrapper{
+    column-gap: 18px;
   }
 }
 .eventH1{
