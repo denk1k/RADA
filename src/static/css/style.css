@@ -171,9 +171,12 @@ section {
 /* --- Fonts --- */
 @font-face {
   font-family: "Now";
+  src: url("../assets/Now-Medium.otf") format("opentype");
+}
+@font-face {
+  font-family: "Now Regular";
   src: url("../assets/Now-Regular.otf") format("opentype");
 }
-
 /* --- Utility --- */
 .zUp {
   position: relative; /* Ensure z-index works */
@@ -346,7 +349,7 @@ body:not(.preload) .navWrapper {
 
 .scrollDown {
   position: absolute;
-  bottom: 1.25rem;
+  bottom: 3rem;
   left: 50%;
   transform: translateX(-50%);
   width: 59px;
@@ -523,7 +526,7 @@ body:not(.preload) .navWrapper {
   color: black; /* Override text color */
   border-radius: 4px; /* Example override if needed */
   justify-content: start;
-  width: 100%;
+  /* width: 100%; */
 }
 .linkBtn:hover {
   background-color: rgb(217, 217, 217); /* Darken slightly on hover */
@@ -600,8 +603,8 @@ body:not(.preload) .navWrapper {
   /* Uses .section-description-base styling */
   font-family: "EB Garamond", Helvetica, Arial, serif;
   color: var(--text-color-light);
-  font-size: 1.125rem;
-  line-height: 1.23; /* Existing */
+  font-size: 1.2rem;
+  /* line-height: 1.23; Existing */
   text-align: justify; /* Specific */
 }
 
@@ -632,7 +635,8 @@ body:not(.preload) .navWrapper {
   /*max-width: 1200px; !* Add a max-width *!*/
   z-index: 1; /* Above gradient */
   /* padding: 40px 0; Add padding */
-  margin: 10% auto 10%;
+  margin: 10% auto auto;
+  padding-bottom:10%;
 }
 
 .eventsTitle {
@@ -770,7 +774,7 @@ body:not(.preload) .navWrapper {
   .detailsWrapper { width: 50%; }
   .textImageWrapper { margin-bottom: 3.5rem; }
   .subtitleText { width: 80%; font-size: 1rem; }
-  .scrollDown { bottom: 0.85rem; }
+  /* .scrollDown { bottom: 3rem; } */
   /* Therapy Specific */
   /* .therapyLinksWrapper { margin-top: -10px; } */
   /*.linkBtn { height: 40px; } !* Specific button height *!*/
@@ -855,14 +859,13 @@ body:not(.preload) .navWrapper {
   }
   .section-description-base,
   .therapyDescription {
-    font-size: 1rem; /* Larger descriptions? Verify this */
+    font-size: 1.125rem; /* Larger descriptions? Verify this */
   }
   .detailsWrapper { width: 70%; }
   .subtitleText { font-size: 1.2rem; } /* Consistent with description? */
   .therapyTextWrapper { margin: 10% 5.71% auto; row-gap: 8px; }
   .therapyLinksWrapper { margin-top: 20px; }
-  /*.linkBtn { height: 50px; } !* Back to larger height? *!*/
-  .eventsMainWrapper { margin: 10% auto 10%; }
+  .linkBtn { width: 100%; } 
   .eventsTitle { margin-left: 2px; } /* Specific adjustment */
 }
 @media (max-width: 479px) {
