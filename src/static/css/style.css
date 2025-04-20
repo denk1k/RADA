@@ -776,7 +776,11 @@ body:not(.preload) .navWrapper {
   .eventDate { font-size: 0.8rem; }
   .eventTitle { font-size: 1rem; }
 }
-
+@media(max-width:575px){
+  .imageWrapper{
+    column-gap: 32px;
+  }
+}
 @media(max-height: 550px){
   .detailsWrapper{
     width: 40%;
