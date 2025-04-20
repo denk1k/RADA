@@ -422,7 +422,7 @@ body:not(.preload) .navWrapper {
 /* .aboutContentWrapper uses .content-wrapper-base, .gradient-left */
 /* .aboutTextWrapper uses .text-wrapper-base, .text-wrapper-left, .zUp */
 /* .aboutTitle uses .section-title-base */
-.aboutTextWrapper .separator-base { margin-top: 5px; margin-bottom: 13px; }
+/* .aboutTextWrapper .separator-base { margin-top: 5px; margin-bottom: 13px; } */
 /* .aboutDescription uses .section-description-base */
 .aboutDescription { line-height: 1; } /* Specific override */
 
@@ -431,7 +431,7 @@ body:not(.preload) .navWrapper {
 /* .whyContentWrapper uses .content-wrapper-base, .gradient-right */
 /* .whyTextWrapper uses .text-wrapper-base, .text-wrapper-right, .zUp */
 /* .whyTitle uses .section-title-base */
-.whyTextWrapper .separator-base { margin-top: 11px; margin-bottom: 12px; }
+/* .whyTextWrapper .separator-base { margin-top: 11px; margin-bottom: 12px; } */
 /* .whyDescription uses .section-description-base */
 .whyDescription { line-height: 1; } /* Specific override */
 
@@ -440,7 +440,7 @@ body:not(.preload) .navWrapper {
 /* .historyContentWrapper uses .content-wrapper-base, .gradient-left */
 /* .historyTextWrapper uses .text-wrapper-base, .text-wrapper-left, .zUp */
 /* .historyTitle uses .section-title-base */
-.historyTextWrapper .separator-base { margin-top: 5px; margin-bottom: 12px; }
+/* .historyTextWrapper .separator-base { margin-top: 5px; margin-bottom: 12px; } */
 /* .historyDescription uses .section-description-base */
 .historyDescription { font-weight: 500; line-height: 1; } /* Specific overrides */
 
@@ -455,7 +455,7 @@ body:not(.preload) .navWrapper {
   font-size: 1.75rem;
   line-height: 1.23;
 } */
-.activityTextWrapper .separator-base { margin-top: 11px; margin-bottom: 11px; } /* Gap set by parent row-gap, adjust if needed */
+/* .activityTextWrapper .separator-base { margin-top: 11px; margin-bottom: 11px; } Gap set by parent row-gap, adjust if needed */
 /* .activityDescription uses .section-description-base */
 .activityDescription { line-height: 1; } /* Specific override */
 
@@ -467,8 +467,8 @@ body:not(.preload) .navWrapper {
   font-size: 2.1rem;
 }
 .joinBlockWrapper .separator-base {
-  margin-top: 9px;
-  margin-bottom: 18px;
+  /* margin-top: 9px; */
+  /* margin-bottom: 18px; */
   /* width: 244px; Specific width */
   max-width: 100%; /* Ensure responsiveness */
 }
@@ -590,7 +590,7 @@ body:not(.preload) .navWrapper {
   line-height: 1.23;
 } */
 
-.therapyTextWrapper .separator-base { /* Target separator specifically */
+.therapyTextWrapper .separator-base { 
   margin-top: 17px;
   margin-bottom: 23px;
 }
@@ -933,4 +933,8 @@ body:not(.preload) .navWrapper {
   .section-title-base{
     font-size: 1.5rem;
   }
+  .simple-button-base span{
+    font-size: 0.8rem;
+  }
+  .federationLogo { width: 22px; }
 }
