@@ -394,7 +394,7 @@ body:not(.preload) .navWrapper {
   color: white; /* Changed from rgb(255, 255, 255) */
   font-weight: 700; /* Most common weight */
   line-height: 1.23;
-  font-size: 2.125rem; /* Most common size */
+  font-size: 2.1rem; /* Most common size */
   width: 100%; /* Titles take full width of their wrapper */
 }
 
@@ -411,7 +411,7 @@ body:not(.preload) .navWrapper {
   font-family: "EB Garamond", Helvetica, Arial, serif;
   color: var(--text-color-light);
   line-height: 1.2; /* Slightly more readable default */
-  font-size: 1.125rem; /* Most common size */
+  font-size: 1.3rem; /* Most common size */
   width: 100%;
 }
 
@@ -448,13 +448,13 @@ body:not(.preload) .navWrapper {
 /* .activitySection uses .section-base */
 /* .activityContentWrapper uses .content-wrapper-base, .gradient-right */
 /* .activityTextWrapper uses .text-wrapper-base, .text-wrapper-right, .zUp */
-.activityTitle { /* Specific styling */
+/* .activityTitle { 
   font-family: "Now", Helvetica, Arial, serif;
   color: white;
   font-weight: 600;
   font-size: 1.75rem;
   line-height: 1.23;
-}
+} */
 .activityTextWrapper .separator-base { margin-top: 11px; margin-bottom: 11px; } /* Gap set by parent row-gap, adjust if needed */
 /* .activityDescription uses .section-description-base */
 .activityDescription { line-height: 1; } /* Specific override */
@@ -464,11 +464,7 @@ body:not(.preload) .navWrapper {
 /* .joinContentWrapper uses .content-wrapper-base, .gradient-left */
 /* .joinBlockWrapper uses .text-wrapper-base, .text-wrapper-left, .zUp */ /* Renamed from joinTextWrapper */
 .joinInvite { /* Specific styling */
-  font-family: "Now", Helvetica, Arial, serif;
-  color: white;
-  font-weight: 700;
-  font-size: 1.75rem;
-  line-height: 1.23;
+  font-size: 2.1rem;
 }
 .joinBlockWrapper .separator-base {
   margin-top: 9px;
@@ -585,14 +581,14 @@ body:not(.preload) .navWrapper {
   row-gap: 0; /* Existing */
 }
 
-.therapyQuestion {
-  /* Uses .section-title-base styling */
+/* .therapyQuestion {
+
   font-family: "Now", Helvetica, Arial, serif;
   color: white;
   font-weight: 700;
   font-size: 2.125rem;
   line-height: 1.23;
-}
+} */
 
 .therapyTextWrapper .separator-base { /* Target separator specifically */
   margin-top: 17px;
@@ -601,9 +597,6 @@ body:not(.preload) .navWrapper {
 
 .therapyDescription {
   /* Uses .section-description-base styling */
-  font-family: "EB Garamond", Helvetica, Arial, serif;
-  color: var(--text-color-light);
-  font-size: 1.2rem;
   /* line-height: 1.23; Existing */
   text-align: justify; /* Specific */
 }
@@ -639,14 +632,13 @@ body:not(.preload) .navWrapper {
   padding-bottom:10%;
 }
 
-.eventsTitle {
-  /* Uses .section-title-base styling */
+/* .eventsTitle {
   font-family: "Now", Helvetica, Arial, serif;
   color: white;
   font-weight: 700;
   font-size: 2.125rem;
   line-height: 1.23;
-}
+} */
 
 .eventsListWrapper {
   display: flex;
@@ -747,12 +739,12 @@ body:not(.preload) .navWrapper {
 /* --- Responsive Design --- */
 
 /* Medium Devices (Tablets) */
-@media (max-width: 991px) {
-  /* Adjust text wrapper widths slightly earlier if needed */
-}
+/* @media (max-width: 991px) {
+  Adjust text wrapper widths slightly earlier if needed */
+
 
 /* Small Devices (Tablets Landscape / Large Phones) */
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .text-wrapper-base {
     width: 35%; /* Wider text block */
   }
@@ -761,11 +753,10 @@ body:not(.preload) .navWrapper {
   .joinInvite,
   .therapyQuestion,
   .eventsTitle {
-    font-size: 1.6rem; /* Smaller titles */
+    font-size: 1.8rem; /* Smaller titles */
   }
-  .section-description-base,
-  .therapyDescription {
-    font-size: 0.9rem; /* Smaller descriptions */
+  .section-description-base{
+    font-size: 1.1rem; /* Smaller descriptions */
   }
   .joinBlockWrapper .separator-base {
     width: 100%; /* Full width separator */
@@ -796,8 +787,7 @@ body:not(.preload) .navWrapper {
   .eventsTitle {
     font-size: 1.3rem; /* Further reduce title size */
   }
-  .section-description-base,
-  .therapyDescription {
+  .section-description-base{
     font-size: 0.8rem; /* Further reduce description size */
   }
   .detailsWrapper { width: 60%; }
@@ -857,8 +847,7 @@ body:not(.preload) .navWrapper {
   .therapyQuestion{
     font-size: 1.7rem;
   }
-  .section-description-base,
-  .therapyDescription {
+  .section-description-base{
     font-size: 1.125rem; /* Larger descriptions? Verify this */
   }
   .detailsWrapper { width: 70%; }
