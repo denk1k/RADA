@@ -777,30 +777,11 @@ body:not(.preload) .navWrapper {
   .eventTitle { font-size: 1rem; }
 }
 
-/* Smaller Devices (Phones Landscape) */
-@media (max-width: 575px) {
-  .imageWrapper { column-gap: 32px; } /* Keep specific adjustments */
-  .section-title-base,
-  .activityTitle,
-  .joinInvite,
-  .therapyQuestion,
-  .eventsTitle {
-    font-size: 1.3rem; /* Further reduce title size */
+@media(max-height: 550px){
+  .detailsWrapper{
+    width: 40%;
+
   }
-  .section-description-base{
-    font-size: 0.8rem; /* Further reduce description size */
-  }
-  .detailsWrapper { width: 60%; }
-  .joinInvite { font-size: 1.2rem; } /* Specific override */
-  .joinBlockWrapper .simple-button-base { min-height: 40px; padding-top: 8px; padding-bottom: 8px; } /* Adjust button height */
-  .therapyTextWrapper .separator-base { margin-top: 15px; }
-  /* .therapyDescription { margin-top: 20px; } */
-  .therapyLinksWrapper { column-gap: 15px; }
-  .linkBtn { column-gap: 15px; } /* Matches wrapper */
-  /* .eventsMainWrapper { margin: auto; Centered } */
-  .eventColorBar { min-height: 12px; }
-  .eventDate { font-size: 0.75rem; }
-  .eventTitle { font-size: 1.125rem; } /* Jumps back up? Verify */
 }
 
 /* Extra Small Devices (Phones Portrait) */
@@ -928,4 +909,28 @@ body:not(.preload) .navWrapper {
 .eventH1{
   font-size: 2rem;
   margin-bottom: 1rem;
+}
+
+@media(max-height: 450px){
+  .detailsWrapper{
+    width: 20%;
+    
+  }
+  .subtitleText{
+
+    width: 100%;
+  }
+  .textImageWrapper{
+    row-gap: 5px;
+  }
+  .scrollDown{
+    bottom: 1.5rem;
+  }
+  .section-description-base{
+    font-size: 0.9rem;
+
+  }
+  .section-title-base{
+    font-size: 1.5rem;
+  }
 }
