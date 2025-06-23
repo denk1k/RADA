@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  {#<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" /> #}
   <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>{{ title if title else settings.title }}</title>
@@ -16,8 +15,9 @@
     <img class="introImage" src="{{ settings.logo }}" alt="RADA Logo" />
     <div class="navWrapper">
       <a class="link hiddenMobile" href="/#intro">Home</a>
-      <a class="link" href="/#about">Par mums</a>
-      <a class="link">Arhivs</a> {# Add href="/" or similar if it should link somewhere #}
+      {# IMPORTANT: Update these links to match the slugified titles of your sections #}
+      <a class="link" href="/#par-mums">Par mums</a>
+      <a class="link">Arhivs</a>
       <a class="link" href="/#events">Aktualitates</a>
       <button class="joinButton">
         <span class="joinText">Pievienojies</span>
@@ -28,113 +28,97 @@
 
 <main class="main-page mainContainer">
   {% block main_content %}
-    {# --- Intro Section --- #}
+    {# --- Intro Section (Static) --- #}
     <section class="introSection" id="intro">
       <div class="detailsWrapper">
         <div class="textImageWrapper">
-          <p class="subtitleText">{{ settings.homepage_sections.intro.subtitle }}</p>
-          <img class="secondaryImage" src="{{ settings.homepage_sections.intro.secondary_image }}" alt="RADA secondary logo" />
+          <p class="subtitleText">{{ settings.intro_section.subtitle }}</p>
+          <img class="secondaryImage" src="{{ settings.intro_section.secondary_image }}" alt="RADA secondary logo" />
         </div>
       </div>
       <img class="scrollDown" src="/static/assets/7dc4ca28cd625bfadee8c1b28599d81c.png" alt="Scroll down" />
     </section>
 
-    {# --- About Section --- #}
-    <section class="aboutSection section-base" id="about" style="--src:url({{ settings.homepage_sections.about.background_image }})">
-      <div class="aboutContentWrapper content-wrapper-base gradient-left">
-        <div class="aboutTextWrapper text-wrapper-base text-wrapper-left zUp">
-          <p class="aboutTitle section-title-base">{{ settings.homepage_sections.about.title }}</p>
-          <hr class="separator-base" size="1" />
-          <article class="aboutDescription section-description-base">
-            {{ settings.homepage_sections.about.description | replace('\n', '<br />') | safe }}
-          </article>
-        </div>
-      </div>
-    </section>
+    {# --- DYNAMIC CONTENT SECTIONS LOOP --- #}
+    {# This single loop now builds all the main content sections of your homepage #}
+    {% for section in settings.main_sections %}
+      {# Determine alignment for the 'default' layout style. Odd sections are left, even are right. #}
+      {% set alignment = 'left' if loop.index is odd else 'right' %}
+    
+      {# --- RENDER SECTION BASED ON LAYOUT STYLE --- #}
 
-    {# --- Why Section --- #}
-    <section class="whySection section-base" id="why" style="--src:url({{ settings.homepage_sections.why.background_image }})">
-      <div class="whyContentWrapper content-wrapper-base gradient-right">
-        <div class="whyTextWrapper text-wrapper-base text-wrapper-right zUp">
-          <p class="whyTitle section-title-base">{{ settings.homepage_sections.why.title }}</p>
-          <hr class="separator-base" size="1" />
-          <article class="whyDescription section-description-base">{{ settings.homepage_sections.why.description | replace('\n', '<br />') | safe }}</article>
-        </div>
-      </div>
-    </section>
+      {# Option 1: Full Green Overlay Layout (like the old 'Therapy' section) #}
+      {% if section.layout_style == 'full_overlay' %}
+        <section id="{{ section.title | slugify }}" class="therapySection" style="--src:url({{ section.background_image }})">
+          <div class="therapyContentWrapper">
+            <div class="therapyTextWrapper">
+              <div class="therapyMainTextWrapper">
+                <p class="section-title-base therapyQuestion">{{ section.title }}</p>
+                <hr class="separator-base" size="1" />
+                <article class="section-description-base therapyDescription">
+                  {{ section.description | safe }}
+                </article>
+              </div>
 
-    {# --- History Section --- #}
-    <section class="historySection section-base" id='history' style="--src:url({{ settings.homepage_sections.history.background_image }})">
-      <div class="historyContentWrapper content-wrapper-base gradient-left">
-        <div class="historyTextWrapper text-wrapper-base text-wrapper-left zUp">
-          <p class="historyTitle section-title-base">{{ settings.homepage_sections.history.title }}</p>
-          <hr class="separator-base" size="1" />
-          <article class="historyDescription section-description-base">
-            {{ settings.homepage_sections.history.description | replace('\n', '<br />') | safe }}
-          </article>
-        </div>
-      </div>
-    </section>
+              {# Optional Reference Links #}
+              {% if section.reference_links and section.reference_links | length > 0 %}
+                <div class="therapyLinksWrapper">
+                  {% for link in section.reference_links %}
+                    <a href="{{ link.url }}" target="_blank" class="simple-button-base linkBtn" rel="noopener noreferrer">
+                      <img class="federationLogo" src="/static/assets/external-link.svg" alt="External link icon" />
+                      <span class="federationText">{{ link.text }}</span>
+                    </a>
+                  {% endfor %}
+                </div>
+              {% endif %}
 
-    {# --- Activity Section --- #}
-    <section class="activitySection section-base" id="activities" style="--src:url({{ settings.homepage_sections.activity.background_image }})">
-      <div class="activityContentWrapper content-wrapper-base gradient-right" >
-        <div class="activityTextWrapper text-wrapper-base text-wrapper-right zUp">
-          <p class="section-title-base activityTitle">{{ settings.homepage_sections.activity.title }}</p>
-          <hr class="separator-base" size="1" />
-          <article class="activityDescription section-description-base">
-            {{ settings.homepage_sections.activity.description | replace('\n', '<br />') | safe }}
-          </article>
-        </div>
-      </div>
-    </section>
-
-    {# --- Join Us Section --- #}
-    <section class="joinUsSection section-base" id="join" style="--src:url({{ settings.homepage_sections.join_us.background_image }})">
-      <div class="joinContentWrapper content-wrapper-base gradient-left">
-        <div class="joinBlockWrapper text-wrapper-base text-wrapper-left zUp">
-          <p class="section-title-base joinInvite">{{ settings.homepage_sections.join_us.title }}</p>
-          <hr class="separator-base" size="1" />
-          <article class="joinDescription section-description-base">
-            {{ settings.homepage_sections.join_us.description | replace('\n', '<br />') | safe }}
-          </article>
-          <button class="simple-button-base">
-            <span>{{ settings.homepage_sections.join_us.button_text }}</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    {# --- Therapy Section --- #}
-    <section class="therapySection" id="therapy" style="--src:url({{ settings.homepage_sections.therapy.background_image }})">
-      <div class="therapyContentWrapper">
-        <div class="therapyTextWrapper">
-          <div class="therapyMainTextWrapper">
-            <p class="section-title-base therapyQuestion">{{ settings.homepage_sections.therapy.title }}</p>
-            <hr class="separator-base" size="1" />
-            <article class="section-description-base therapyDescription">
-              {{ settings.homepage_sections.therapy.description | replace('\n', '<br />') | safe }}
-            </article>
-          </div>
-          
-          {# MODIFIED: This wrapper now contains a dynamic loop #}
-          <div class="therapyLinksWrapper">
-            {# First, check if the links list exists and has items #}
-            {% if settings.homepage_sections.therapy.links %}
-              {# Loop through each link in the list and create an anchor tag for it #}
-              {% for link in settings.homepage_sections.therapy.links %}
-                <a href="{{ link.url }}" target="_blank" class="simple-button-base linkBtn" rel="noopener noreferrer">
-                  <img class="federationLogo" src="/static/assets/external-link.svg" alt="External link icon" />
-                  <span class="federationText">{{ link.text }}</span>
+              {# Optional Join Button #}
+              {% if section.show_join_button and section.join_button %}
+                <a href="{{ section.join_button.url }}" class="simple-button-base" style="margin-top: 2rem;">
+                  <span>{{ section.join_button.text }}</span>
                 </a>
-              {% endfor %}
-            {% endif %}
+              {% endif %}
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    {# --- Events Section --- #}
+      {# Option 2: Default Alternating Image Layout #}
+      {% else %}
+        <section id="{{ section.title | slugify }}" class="section-base" style="--src:url({{ section.background_image }})">
+          <div class="content-wrapper-base gradient-{{ alignment }}">
+            <div class="text-wrapper-base text-wrapper-{{ alignment }} zUp">
+              <p class="section-title-base">{{ section.title }}</p>
+              <hr class="separator-base" size="1" />
+              <article class="section-description-base">
+                {{ section.description | safe }}
+              </article>
+
+              {# Optional Join Button #}
+              {% if section.show_join_button and section.join_button %}
+                <a href="{{ section.join_button.url }}" class="simple-button-base">
+                  <span>{{ section.join_button.text }}</span>
+                </a>
+              {% endif %}
+
+              {# Optional Reference Links #}
+              {% if section.reference_links and section.reference_links | length > 0 %}
+                <div class="therapyLinksWrapper" style="margin-top: 2rem;">
+                  {% for link in section.reference_links %}
+                    <a href="{{ link.url }}" target="_blank" class="simple-button-base linkBtn" rel="noopener noreferrer">
+                      <img class="federationLogo" src="/static/assets/external-link.svg" alt="External link icon" />
+                      <span class="federationText">{{ link.text }}</span>
+                    </a>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </section>
+      {% endif %}
+    {% endfor %}
+
+
+    {# --- Events Section (Remains Static) --- #}
     <section class="eventsSection section-base" id="events" style="--src:url(/static/assets/eac0bd2c9d35952d9077cf0d7ed914ac.png)">
       <div class="eventsContentWrapper content-wrapper-base gradient-overlay gradient-bottom">
         <div class="eventsMainWrapper">
@@ -150,13 +134,10 @@
                       <div class="eventDateInfo">
                         <div class="eventColorBar"></div>
                         <p class="eventDate">
-                          <time datetime="{{ event.date | readableISODate | slugify }}">
-                            {{ event.date | readableDate }}
-                          </time>
+                          <time datetime="{{ event.date | readableISODate | slugify }}">{{ event.date | readableDate }}</time>
                         </p>
                       </div>
                       <p class="eventTitle">{{ event.data.title }}</p>
-                      {# Optionally display the short description if it exists #}
                       {% if event.data.description %}
                         <p class="eventShortDescription">{{ event.data.description }}</p>
                       {% endif %}
@@ -174,25 +155,17 @@
   {% endblock %} 
 </main>
 
-{# --- Footer Section --- #}
+{# --- Footer Section (Unchanged) --- #}
 {% if footerlinks.links %}
 <footer class="footerSection" id="footer">
   <div class="footerContentWrapper">
     <div class="footerLinksContainer">
-      {# Loop through each link defined in _data/footerlinks.yaml #}
       {% for item in footerlinks.links %}
         <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="footerLinkItem">
-          {# Configurable icon on the left #}
-          <div class="footerIconWrapper">
-            <i class="{{ item.icon | default('fa-solid fa-link') }}"></i>
-          </div>
-          {# Vertically centered text content on the right #}
+          <div class="footerIconWrapper"><i class="{{ item.icon | default('fa-solid fa-link') }}"></i></div>
           <div class="footerTextWrapper">
             <span class="footerLinkTitle">{{ item.title }}</span>
-            {# Only show the description if it exists #}
-            {% if item.desc %}
-              <span class="footerLinkDesc">{{ item.desc }}</span>
-            {% endif %}
+            {% if item.desc %}<span class="footerLinkDesc">{{ item.desc }}</span>{% endif %}
           </div>
         </a>
       {% endfor %}
@@ -204,50 +177,28 @@
 </footer>
 {% endif %}
 
-{# --- Navbar Scroll Script --- #}
+{# --- Scripts (Unchanged) --- #}
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const imageTextBlock = document.querySelector('.imageTextBlock');
-    const introSection = document.querySelector('.introSection'); // The section to scroll past
-
-    if (!imageTextBlock || !introSection) {
-      console.error("Required elements for navbar animation not found.");
-      return; 
-    }
-
+    const introSection = document.querySelector('.introSection');
+    if (!imageTextBlock || !introSection) return;
     const triggerPoint = introSection.offsetTop + introSection.offsetHeight - imageTextBlock.offsetHeight;
-
     function handleScroll() {
-      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollY > triggerPoint) {
-        if (!imageTextBlock.classList.contains('navbar-scrolled')) {
-          imageTextBlock.classList.add('navbar-scrolled');
-        }
+      if (window.pageYOffset > triggerPoint) {
+        imageTextBlock.classList.add('navbar-scrolled');
       } else {
-        if (imageTextBlock.classList.contains('navbar-scrolled')) {
-          imageTextBlock.classList.remove('navbar-scrolled');
-        }
+        imageTextBlock.classList.remove('navbar-scrolled');
       }
     }
-
-    window.addEventListener('scroll', handleScroll, { passive: true }); // Improve scroll performance
-
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
   });
-</script>
 
-<script>
-  window.addEventListener('load', () => {
-    document.body.classList.remove('preload');
-  });
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const yearSpan = document.getElementById('current-year');
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
-  });
+  window.addEventListener('load', () => { document.body.classList.remove('preload'); });
+
+  const yearSpan = document.getElementById('current-year');
+  if (yearSpan) { yearSpan.textContent = new Date().getFullYear(); }
 </script>
 
 </body>
