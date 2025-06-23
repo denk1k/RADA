@@ -17,6 +17,12 @@ export default function(eleventyConfig) {
     );
   });
 
+  eleventyConfig.addFilter("yearly", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
+      "yyyy"
+    );
+  });
+
   // human readable date
   eleventyConfig.addFilter("readableDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(

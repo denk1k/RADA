@@ -1,8 +1,18 @@
----
+# src/_data/footerlinks.yaml
 links:
-  - title: Netlify CMS
-    url: "https://www.netlifycms.org/"
-    desc: Open source content management for your Git workflow
-  - title: Eleventy
-    url: "https://www.11ty.dev/"
-    desc: Eleventy is a simpler static site generator.
+  - title: Instagram
+    url: "https://www.instagram.com/rada.studija/"
+    desc: "Seko mums Instagram!"
+    icon: "fab fa-instagram"
+  - title: Facebook
+    url: "https://www.facebook.com/radastudija"
+    desc: "Atrodi mūs Facebook."
+    icon: "fab fa-facebook"
+  - title: Sazinies ar mums
+    url: "mailto:info@radastudija.lv"
+    desc: "info@radastudija.lv"
+    icon: "fas fa-envelope"
+  - title: Ziedo
+    url: "/ziedo"
+    desc: "Atbalsti mūsu darbību"
+    icon: "fas fa-hand-holding-heart"

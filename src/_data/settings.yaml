@@ -1,3 +1,4 @@
+# General Site Settings
 logo: /static/img/rada-logo.png
 description: RADA Studija - Vieta, kur radīt, mācīties un just.
 url: radastudija.netlify.app
@@ -10,3 +11,59 @@ height: 630
 alt: RADA
 posts: Articles
 postsorder: 100
+
+# Editable Homepage Sections
+homepage_sections:
+  intro:
+    subtitle: "Vieta, kur radīt, mācīties un just."
+    secondary_image: "/static/assets/42a26737161d740770afe9c77af347cc.png"
+    
+  about:
+    title: "Par Mums"
+    background_image: "/static/assets/c128edbcbba85156f372a4febc76521b.png"
+    description: |
+      RADA Studija ir jauniešu vadīta un dibināta biedrība, kas veido dažādus pasākumus un nodarbības ar mērķi vecināt emocionālo inteliģenci, sadarbību un radošumu. Mūsu nodarbību saturs atsaucās uz mākslas terapijā pielietotām metodēm, fokusējoties uz mākslas terapeitisko procesu nevis rezultātu.
+
+      Mūsu pasākumi ļauj cilvēkiem atgriezties tagadnē, kas noņem stresu, veicina pašpārliecinātību, piederības sajūtu un spēju darīt.
+
+      Mēs veidojam telpu, kur cilvēki var sanākt kopā.
+
+  why:
+    title: "Kāpēc?"
+    background_image: "/static/assets/158c703873c03616faa07b3dbbc159fc.png"
+    description: "RADA darbības galvenie mērķi ir veicināt emocionālo izglītību un empātiju, drošību un uzticību sevī un citos, piedāvājot izglītjošu saturu, un dod iespēju ikvienam izmēģināt ekspertu atzītas un pieejamas mākslas terapijas metodes."
+
+  history:
+    title: "Vēsture"
+    background_image: "/static/assets/82e5ec76f073cbd83f8c46f4ad57bf34.png"
+    description: |
+      RADA darbojas kopš 2021. gada oktobra un savu darbību sāka ar sociālo projektu “Safe Space”, taču kā “RADA Studija” ir pazīstama kopš 2022. gada septembra.
+      
+      Šo gadu laikā RADA veidotāji ir izveidojuīši savu kopienu par NVO biedrību, vadījuši pasākumus, devušies izbraucienos un pārvērtuši sirdslietu par kopīgu ceļu.
+
+  activity:
+    title: "Mūsu darbība izpaužas dažādi"
+    background_image: "/static/assets/648e7a2f3f275dc6a571eaadff84d0d4.png"
+    description: |
+      Piedāvājam bezmaksas pasākumus, kuros jebkurš interesents var pievienoties un izmēģināt mākslas terapijas metodes, meditāciju, iesaistīties diskusijās un kopā pabūt drošā, mierīgā vidē.
+
+      Dodamies izbraucienos ciemos pie citām organizācijām, skolām, nometnēm vai interesentu grupām, izstāstot gan par mākslas terapijas tēmu, gan iemēģinot tās metodes. Attīstam sociālo mediju platformu, piedalāmies citu organizāciju pasākumos un vienmēr esam atvērti vēl citām darbības izpausmēm.
+
+  join_us:
+    title: "Pievienojies arī tu!"
+    background_image: "/static/assets/71f45b0438ad3b7f2124ae0c7e1342c9.png"
+    description: |
+      Šajā pasaulē, kas ir piesātināta ar visdažādākajām emocijām, pārdzīvojumiem un rosīgām enerģijas plūsmām, ir viegli aizmirst parūpēties par to pasauli, kas ir mūsos iekšā.
+
+      RADA mērķis ir sniegt katram drošu vidi, kurā ar mākslu un mākslas terapijas metodēm radoši izpausties un komunicēt, ļaujot ievest mieru mūsu reizēm pārāk steidzīgajās iekdienās. Aicinām arī Tevi pievienoties kādā no mūsu pasākumiem un ļauties tam siltumam, kuru izstaro kopābūšana!
+    button_text: "Pievienojies RADA"
+
+  therapy:
+    title: "Kāpēc mākslas terapija?"
+    background_image: "/static/assets/f42078ee1ac7263bf5a104339b4a9189.png"
+    description: |
+      Mākslas terapija izmanto radošo procesu terapeitiskā kontekstā, lai uzlabotu un veicinātu cilvēka garīgo, emocionālo un fizisko labklājību.
+
+      RADA Studija izmanto tieši mākslas terapijas metodes, jo tās ir daudzveidīgas, proti, ietver gan vizuāli plastiskās, gan mūzikas, dejas un drāmas elementus, un ļauj katram pašam izvēlēties, cik dziļi šajā procesā ieguldīties.
+
+      Mēs piedāvājam iemācīties kā šos mākslas terapijas līdzekļus pielietot ikdienā pēc savām spējām un vajadzībām.

@@ -54,38 +54,88 @@ collections:
           - { label: "Navigation Order", name: "postsorder", widget: "number" }        
   - label: "Events"
     name: "events"
-    folder: "src/events" # Folder where event markdown files will be stored
+    folder: "src/events"
     create: true
     editor:
-      preview: false # Keep preview off for now
+      preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Event Date", name: "date", widget: "datetime" }
       - { label: "Short Description (for card)", name: "description", widget: "string" }
-      # Optional: Add an image field if needed for the event card or page
-      # - { label: "Featured Image", name: "image", widget: "image", required: false }
       - { label: "Event Details (Main Content)", name: "body", widget: "markdown" }
-      # Optional: Add navigation order if needed, similar to pages
-      # - { label: "Navigation Order", name: "order", widget: "number", default: 0 }
   - label: "Settings"
     name: "settings"
     editor:
       preview: false
     files:
-      - label: "Settings"
+      - label: "Site Settings & Homepage"
         name: "settings"
         file: "src/_data/settings.yaml"
         fields:
-          - { label: "Logo", name: "logo", widget: "image", allow_multiple: false }
-          - { label: "Description", name: "description", widget: "string" }
-          - { label: "URL", name: "url", widget: "string" }
+          # General Site Settings
           - { label: "Name", name: "name", widget: "string" }
-          - { label: "Locale", name: "locale", widget: "string", default: "en_GB", hint: "To infinity and beyond!" }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Image", name: "image", widget: "image", allow_multiple: false }
-          - { label: "Image width", name: "width", widget: "number", default: 1200 }          
-          - { label: "Image height", name: "height", widget: "number", default: 630 }          
-          - { label: "Image alt", name: "alt", widget: "string" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Logo", name: "logo", widget: "image", allow_multiple: false }
+          - { label: "Default SEO Title", name: "title", widget: "string" }
+          - { label: "Default SEO Description", name: "description", widget: "string" }
+          - { label: "Default SEO Image", name: "image", widget: "image", allow_multiple: false }
+          - { label: "Locale", name: "locale", widget: "string", default: "lv_LV" }
+          
+          # Homepage Sections Object
+          - label: "Homepage Sections"
+            name: "homepage_sections"
+            widget: "object"
+            collapsed: false
+            fields:
+              - label: "Intro Section"
+                name: "intro"
+                widget: "object"
+                fields:
+                  - { label: "Subtitle", name: "subtitle", widget: "string" }
+                  - { label: "Secondary Image", name: "secondary_image", widget: "image" }
+              - label: "About Section (Par Mums)"
+                name: "about"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Background Image", name: "background_image", widget: "image" }
+                  - { label: "Description", name: "description", widget: "markdown" }
+              - label: "Why Section (Kāpēc?)"
+                name: "why"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Background Image", name: "background_image", widget: "image" }
+                  - { label: "Description", name: "description", widget: "markdown" }
+              - label: "History Section (Vēsture)"
+                name: "history"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Background Image", name: "background_image", widget: "image" }
+                  - { label: "Description", name: "description", widget: "markdown" }
+              - label: "Activity Section (Mūsu darbība)"
+                name: "activity"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Background Image", name: "background_image", widget: "image" }
+                  - { label: "Description", name: "description", widget: "markdown" }
+              - label: "Join Us Section (Pievienojies)"
+                name: "join_us"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Background Image", name: "background_image", widget: "image" }
+                  - { label: "Description", name: "description", widget: "markdown" }
+                  - { label: "Button Text", name: "button_text", widget: "string" }
+              - label: "Therapy Section (Mākslas Terapija)"
+                name: "therapy"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Background Image", name: "background_image", widget: "image" }
+                  - { label: "Description", name: "description", widget: "markdown" }
       - label: "Footer Links"
         name: "footerlinks"
         file: "src/_data/footerlinks.yaml"

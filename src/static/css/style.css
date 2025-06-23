@@ -942,3 +942,86 @@ body:not(.preload) .navWrapper {
   }
   .federationLogo { width: 22px; }
 }
+
+.footerSection {
+  /* Using the same padding as other major sections for consistency */
+  padding: 80px 5%;
+  background-color: #1a1a1a; /* A dark background for contrast */
+  color: var(--text-color-light);
+  width: 100%;
+}
+
+.footerContentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Main flex container for all the link items */
+.footerLinksContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto the next line on smaller screens */
+  justify-content: center; /* Centers the links in the container */
+  gap: 2rem; /* Provides space between link items */
+  width: 100%;
+  margin-bottom: 4rem; /* Space before the copyright text */
+}
+
+/* Individual link item styling */
+.footerLinkItem {
+  display: flex; /* Creates the side-by-side layout for icon and text */
+  align-items: center; /* Vertically centers the icon with the text block [2][7] */
+  background-color: #2a2a2a;
+  padding: 1.25rem 1.5rem; /* Internal spacing [3] */
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-color-light);
+  min-width: 280px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.footerLinkItem:hover {
+  transform: translateY(-5px);
+  background-color: #383838;
+}
+
+/* Icon wrapper on the left */
+.footerIconWrapper i {
+  font-size: 2.5rem; /* Larger icon size */
+  color: var(--primary-accent-color, #ffffff); /* Use a site-wide accent color or default to white */
+  width: 50px; /* Fixed width for alignment */
+  text-align: center;
+}
+
+/* Text wrapper on the right */
+.footerTextWrapper {
+  display: flex;
+  flex-direction: column; /* Stacks title and description vertically */
+  justify-content: center; /* Vertically centers the text content */
+  align-items: flex-start; /* Aligns text to the left */
+  padding-left: 20px; /* 20px padding from the icon as requested [3] */
+}
+
+.footerLinkTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.footerLinkDesc {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
+  color: #b0b0b0; /* A lighter color for the description */
+  margin-top: 4px;
+}
+
+/* Copyright notice at the bottom */
+.footerCopyright {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: #888;
+    text-align: center;
+}

@@ -1,0 +1,969 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
+
+/* --- Variables --- */
+:root {
+  --navheight: 68px;
+  --text-color-light: rgb(247, 244, 237);
+  --text-color-dark: rgb(72, 89, 56);
+  --text-color-dark-alt: rgb(71, 89, 54);
+  --background-light: #edfff4;
+  --separator-color: rgb(217, 217, 217);
+  --gradient-color: rgba(72, 89, 56, 1); /* Dark green for gradients */
+  --gradient-color-therapy: rgba(72, 89, 57, 0.698); /* Specific overlay for therapy */
+  --gradient-color-events: rgba(72, 89, 56, 0.35); /* Specific overlay for events */
+}
+
+/* --- Reset & Base --- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--navheight); /* Adjusted from 68px */
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  background-color: var(--background-light);
+  font-family: "Now", Helvetica, Arial, sans-serif; /* Default font */
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a,
+button {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  text-decoration: none; /* Add base */
+}
+
+img {
+  max-width: 100%; /* Add base */
+  height: auto; /* Add base */
+}
+
+section {
+  min-height: fit-content; /* Existing */
+  position: relative; /* Add base for pseudo-elements */
+  overflow: hidden; /* Prevent gradient overflow issues */
+}
+
+/* --- Fonts --- */
+@font-face {
+  font-family: "Now";
+  src: url("../assets/Now-Regular.otf") format("opentype");
+}
+
+/* --- Utility --- */
+.hiddenMobile {
+  /* Kept for specific use */
+}
+.zUp {
+  position: relative; /* Ensure z-index works */
+  z-index: 1; /* Bring text above gradient */
+}
+
+/* --- Main Layout --- */
+.main-page.mainContainer {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Existing */
+  background-color: var(--background-light); /* Existing */
+}
+
+/* --- Header / Navbar --- */
+.imageTextBlock {
+  display: flex;
+  position: sticky;
+  top: 0;
+  flex-direction: column;
+  background-color: var(--background-light);
+  z-index: 100;
+  transition: background-color 0.3s ease-in-out;
+  height: var(--navheight);
+  align-content: center;
+  justify-content: center;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: space-between; /* Always space-between */
+  align-items: center;
+  margin: 12px auto;
+  width: 87.96%;
+  position: relative; /* For transform calculations */
+}
+
+.introImage {
+  height: 44px;
+  width: auto; /* Let image define width */
+  visibility: visible;
+  /* Animation styles */
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.navWrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  /* Animation styles */
+  /* Adjust this translateX based on precise logo width and desired centering effect */
+  transform: translateX(calc(-87.96vw / 2 + 50% + 22px)); /* Approximate adjustment */
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Scrolled State for Navbar Animation */
+.imageTextBlock.navbar-scrolled .introImage {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.imageTextBlock.navbar-scrolled .navWrapper {
+  transform: translateX(0);
+}
+
+/* Optional: Scrolled background feedback */
+/* .imageTextBlock.navbar-scrolled {
+    background-color: #e0f5e8;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+} */
+
+.navWrapper .link {
+  font-size: 0.6875rem;
+  line-height: 1.23;
+  font-family: "Now", Helvetica, Arial, serif;
+  color: var(--text-color-dark);
+  text-transform: uppercase;
+  text-wrap: nowrap;
+}
+.navWrapper .link:hover {
+  color: black;
+}
+
+.joinButton {
+  display: flex; /* Keeps content centered */
+  background-color: transparent;
+  padding: 5.5px 10px; /* Simplified padding */
+  border-radius: 12px;
+  border: 1px solid var(--text-color-dark);
+  outline: none; /* Use border instead */
+}
+.joinButton:hover {
+  background-color: var(--text-color-dark);
+}
+.joinButton:hover .joinText {
+  /* Target span directly */
+  color: white;
+}
+
+.joinText {
+  font-weight: 700;
+  font-size: 0.6875rem;
+  line-height: 1.23;
+  font-family: "Now", Helvetica, Arial, serif;
+  color: var(--text-color-dark);
+  text-align: center;
+  text-transform: uppercase;
+  background-color: transparent; /* Inherits from button */
+  transition: color 0.3s ease-in-out; /* Add transition for text color */
+}
+
+/* --- Intro Section --- */
+.introSection {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - var(--navheight));
+  align-items: center; /* Center vertically */
+}
+
+.detailsWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Was place-content */
+  align-items: center;
+  width: 400px;
+  max-width: 90%; /* Prevent overflow on small screens */
+}
+
+.textImageWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  row-gap: 10px;
+}
+
+.subtitleText {
+  display: flex; /* Already flex, remove */
+  justify-content: center;
+  width: 65%;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.23;
+  font-family: "Now", Helvetica, Arial, serif;
+  color: var(--text-color-dark-alt);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.secondaryImage {
+  width: 100%; /* Max width set by parent */
+}
+
+.promoImage {
+  position: absolute;
+  bottom: 1.25rem;
+  width: 59px;
+  /* Assuming this is specific to intro, maybe needs adjustment if reused */
+}
+
+/* --- Base Section Styles --- */
+.section-base {
+  display: flex;
+  flex-direction: column;
+  background: var(--src) center center / cover no-repeat;
+}
+
+.content-wrapper-base {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(100vh - var(--navheight)); /* Use min-height for flexibility */
+  position: relative; /* For absolute pseudo-elements */
+}
+
+.text-wrapper-base {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  row-gap: 10px; /* A reasonable default gap */
+  margin: auto 0; /* Vertical centering */
+}
+
+/* Text alignment modifiers */
+.text-wrapper-left {
+  margin-left: 5.71%;
+  margin-right: auto;
+}
+.text-wrapper-right {
+  margin-left: auto;
+  margin-right: 5.71%;
+}
+
+.section-title-base {
+  font-family: "Now", Helvetica, Arial, serif;
+  color: white; /* Changed from rgb(255, 255, 255) */
+  font-weight: 700; /* Most common weight */
+  line-height: 1.23;
+  font-size: 2.125rem; /* Most common size */
+  width: 100%; /* Titles take full width of their wrapper */
+}
+
+.separator-base {
+  width: 100%;
+  height: 1px;
+  min-height: 1px;
+  background-color: var(--separator-color);
+  margin-top: 8px; /* Average margin */
+  margin-bottom: 15px; /* Average margin */
+}
+
+.section-description-base {
+  font-family: "EB Garamond", Helvetica, Arial, serif;
+  color: var(--text-color-light);
+  line-height: 1.2; /* Slightly more readable default */
+  font-size: 1.125rem; /* Most common size */
+  width: 100%;
+}
+
+/* --- Section Specific Styles & Overrides --- */
+
+/* About Section */
+/* .aboutSection uses .section-base */
+/* .aboutContentWrapper uses .content-wrapper-base, .gradient-left */
+/* .aboutTextWrapper uses .text-wrapper-base, .text-wrapper-left, .zUp */
+/* .aboutTitle uses .section-title-base */
+.aboutTextWrapper .separator-base { margin-top: 5px; margin-bottom: 13px; }
+/* .aboutDescription uses .section-description-base */
+.aboutDescription { line-height: 1; } /* Specific override */
+
+/* Why Section */
+/* .whySection uses .section-base */
+/* .whyContentWrapper uses .content-wrapper-base, .gradient-right */
+/* .whyTextWrapper uses .text-wrapper-base, .text-wrapper-right, .zUp */
+/* .whyTitle uses .section-title-base */
+.whyTextWrapper .separator-base { margin-top: 11px; margin-bottom: 12px; }
+/* .whyDescription uses .section-description-base */
+.whyDescription { line-height: 1; } /* Specific override */
+
+/* History Section */
+/* .historySection uses .section-base */
+/* .historyContentWrapper uses .content-wrapper-base, .gradient-left */
+/* .historyTextWrapper uses .text-wrapper-base, .text-wrapper-left, .zUp */
+/* .historyTitle uses .section-title-base */
+.historyTextWrapper .separator-base { margin-top: 5px; margin-bottom: 12px; }
+/* .historyDescription uses .section-description-base */
+.historyDescription { font-weight: 500; line-height: 1; } /* Specific overrides */
+
+/* Activity Section */
+/* .activitySection uses .section-base */
+/* .activityContentWrapper uses .content-wrapper-base, .gradient-right */
+/* .activityTextWrapper uses .text-wrapper-base, .text-wrapper-right, .zUp */
+.activityTitle { /* Specific styling */
+  font-family: "Now", Helvetica, Arial, serif;
+  color: white;
+  font-weight: 600;
+  font-size: 1.75rem;
+  line-height: 1.23;
+}
+.activityTextWrapper .separator-base { margin-top: 11px; margin-bottom: 11px; } /* Gap set by parent row-gap, adjust if needed */
+/* .activityDescription uses .section-description-base */
+.activityDescription { line-height: 1; } /* Specific override */
+
+/* Join Us Section */
+/* .joinUsSection uses .section-base */
+/* .joinContentWrapper uses .content-wrapper-base, .gradient-left */
+/* .joinBlockWrapper uses .text-wrapper-base, .text-wrapper-left, .zUp */ /* Renamed from joinTextWrapper */
+.joinInvite { /* Specific styling */
+  font-family: "Now", Helvetica, Arial, serif;
+  color: white;
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.23;
+}
+.joinBlockWrapper .separator-base {
+  margin-top: 9px;
+  margin-bottom: 18px;
+  max-width: 100%; /* Ensure responsiveness */
+}
+/* .joinDescription uses .section-description-base */
+.joinDescription { line-height: 1; } /* Specific override */
+
+/* --- Buttons (Simple / Therapy Link) --- */
+.simple-button-base {
+  display: inline-flex; /* Use inline-flex for wrapping */
+  align-items: center; /* Vertically center content */
+  justify-content: center; /* Horizontally center content */
+  padding: 10px 20px;
+  border: 1px solid white;
+  border-radius: 10px; /* Slightly different from joinButton */
+  background: transparent;
+  color: white; /* Default text color */
+  font-family: "Now", Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400; /* Base weight */
+  text-align: center;
+  margin-top: 20px; /* Common margin */
+  width: max-content; /* Fit content width */
+  opacity: 1;
+  mix-blend-mode: normal; /* Existing */
+}
+
+.simple-button-base span { /* Style span within */
+  color: inherit; /* Inherit color from button */
+  font-size: inherit;
+  font-family: inherit;
+  transition: color 0.3s ease-in-out; /* Match button transition */
+}
+
+.simple-button-base:hover {
+  background: white;
+  border-color: var(--text-color-dark);
+  color: var(--text-color-dark);
+}
+/* Hover state for span is covered by inheriting color */
+
+/* Specific button instances if needed */
+.joinBlockWrapper .simple-button-base {
+  /* Specific margin or styles if different from therapy */
+  /*margin-top: 25px; !* Override base *!*/
+}
+
+/* Therapy Section Link Button */
+.linkBtn {
+  /* Inherits from simple-button-base, apply overrides */
+  column-gap: 14px;
+  /*height: 50px;*/
+  background-color: rgba(217, 217, 217, 0.8);
+  /*padding: 16px 16px 16px 11px;*/
+  margin: 0; /* Override margin-top */
+  width: auto; /* Override width */
+  border: 1px solid transparent; /* Override border */
+  color: black; /* Override text color */
+  border-radius: 4px; /* Example override if needed */
+}
+.linkBtn:hover {
+  background-color: rgb(217, 217, 217); /* Darken slightly on hover */
+  border-color: transparent;
+  color: black;
+}
+
+.federationLogo {
+  width: 32px;
+  height: auto; /* Maintain aspect ratio */
+  vertical-align: middle; /* Align with text */
+}
+
+.federationText {
+  /* Style is within the span inside linkBtn */
+  font-size: 0.9375rem;
+  line-height: 1.23;
+  font-family: "Now", Helvetica, Arial, serif;
+  /* Color is inherited from linkBtn */
+}
+
+/* --- Therapy Section --- */
+.therapySection {
+  /* Uses .section-base but with different background */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--src) -270% center / cover repeat; /* Specific background */
+}
+
+.therapyContentWrapper {
+  /* Does not use content-wrapper-base due to full overlay */
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Was 100vw */
+  min-height: calc(100vh - var(--navheight));
+  background-color: var(--gradient-color-therapy);
+  position: relative;
+  padding: 0; /* Reset padding */
+}
+
+.therapyTextWrapper {
+  /* Does not use text-wrapper-base */
+  display: flex;
+  flex-direction: column;
+  row-gap: 22px;
+  margin: auto 5.71%; /* Horizontal margins, vertical centering */
+  padding: 40px 0; /* Add some vertical padding */
+  max-width: 88.58%; /* Ensure content doesn't touch edges */
+  z-index: 1; /* Above background color */
+}
+
+.therapyMainTextWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0; /* Existing */
+}
+
+.therapyQuestion {
+  /* Uses .section-title-base styling */
+  font-family: "Now", Helvetica, Arial, serif;
+  color: white;
+  font-weight: 700;
+  font-size: 2.125rem;
+  line-height: 1.23;
+}
+
+.therapyTextWrapper .separator-base { /* Target separator specifically */
+  margin-top: 17px;
+  margin-bottom: 23px;
+}
+
+.therapyDescription {
+  /* Uses .section-description-base styling */
+  font-family: "EB Garamond", Helvetica, Arial, serif;
+  color: var(--text-color-light);
+  font-size: 1.125rem;
+  line-height: 1.23; /* Existing */
+  text-align: justify; /* Specific */
+}
+
+.therapyLinksWrapper {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  column-gap: 27px;
+  row-gap: 15px; /* Add row gap for wrapping */
+  margin-top: 10px; /* Adjusted margin */
+}
+
+/* --- Events Section --- */
+/* .eventsSection uses .section-base */
+
+.eventsContentWrapper {
+  /* Uses .content-wrapper-base, .gradient-overlay, .gradient-bottom */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+.eventsMainWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  margin: 0; /* Remove margin, parent centers it */
+  width: 88.47%;
+  /*max-width: 1200px; !* Add a max-width *!*/
+  z-index: 1; /* Above gradient */
+  padding: 40px 0; /* Add padding */
+}
+
+.eventsTitle {
+  /* Uses .section-title-base styling */
+  font-family: "Now", Helvetica, Arial, serif;
+  color: white;
+  font-weight: 700;
+  font-size: 2.125rem;
+  line-height: 1.23;
+}
+
+.eventsListWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem; /* Add gap between cards */
+}
+
+.eventCard {
+  display: flex; /* Keeps direction column */
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.349);
+  border-radius: 11px;
+  padding: 0.9rem 1.125rem 1rem; /* Apply padding directly */
+}
+
+.eventInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+  /* Removed margin and width, handled by parent padding */
+}
+
+.eventDateInfo {
+  display: flex;
+  align-items: center; /* Align bar and text */
+  column-gap: 9px;
+}
+
+.eventColorBar {
+  width: 2px;
+  align-self: stretch; /* Make bar fill height */
+  min-height: 16px; /* Keep min-height */
+  background-color: var(--text-color-light);
+}
+
+.eventDate {
+  font-family: "EB Garamond", Helvetica, Arial, serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1.25;
+  color: var(--text-color-light);
+}
+
+.eventTitle {
+  font-family: "EB Garamond", Helvetica, Arial, serif;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1;
+  color: white;
+}
+
+/* --- Gradient Overlays --- */
+.content-wrapper-base::before,
+.content-wrapper-base::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0; /* Behind content */
+  background: transparent; /* Default */
+}
+
+/* Left-to-Right Gradient */
+.content-wrapper-base.gradient-left::before {
+  background: linear-gradient(
+    to right,
+    var(--gradient-color),
+    transparent
+  );
+}
+
+/* Right-to-Left Gradient */
+.content-wrapper-base.gradient-right::before {
+  background: linear-gradient(
+    to left,
+    var(--gradient-color),
+    transparent
+  );
+}
+
+/* Full Overlay (Events) */
+.content-wrapper-base.gradient-overlay::before {
+  background: var(--gradient-color-events);
+}
+
+/* Bottom Gradient (Events) */
+.content-wrapper-base.gradient-bottom::after {
+  background: linear-gradient(to top, var(--gradient-color), transparent);
+  height: 50%;
+  top: auto; /* Override top: 0 */
+  bottom: 0;
+}
+
+
+/* --- Responsive Design --- */
+
+/* Medium Devices (Tablets) */
+@media (max-width: 991px) {
+  /* Adjust text wrapper widths slightly earlier if needed */
+}
+
+/* Small Devices (Tablets Landscape / Large Phones) */
+@media (max-width: 767px) {
+  .text-wrapper-base {
+    width: 35%; /* Wider text block */
+  }
+  .section-title-base,
+  .activityTitle,
+  .joinInvite,
+  .therapyQuestion,
+  .eventsTitle {
+    font-size: 1.6rem; /* Smaller titles */
+  }
+  .section-description-base,
+  .therapyDescription {
+    font-size: 0.9rem; /* Smaller descriptions */
+  }
+  .joinBlockWrapper .separator-base {
+    width: 100%; /* Full width separator */
+  }
+  .joinText { align-items: flex-start; } /* Specific adjustment */
+  .detailsWrapper { width: 50%; }
+  .textImageWrapper { margin-bottom: 3.5rem; }
+  .subtitleText { width: 80%; font-size: 1rem; }
+  .promoImage { bottom: 0.85rem; }
+  /* Therapy Specific */
+  .therapyLinksWrapper { margin-top: -10px; }
+  /*.linkBtn { height: 40px; } !* Specific button height *!*/
+  .federationLogo { width: 30px; }
+  .federationText { font-size: 0.85rem; }
+  /* Events Specific */
+  .eventColorBar { min-height: 14px; }
+  .eventDate { font-size: 0.8rem; }
+  .eventTitle { font-size: 1rem; }
+}
+
+/* Smaller Devices (Phones Landscape) */
+@media (max-width: 575px) {
+  .imageWrapper { column-gap: 32px; } /* Keep specific adjustments */
+  .section-title-base,
+  .activityTitle,
+  .joinInvite,
+  .therapyQuestion,
+  .eventsTitle {
+    font-size: 1.3rem; /* Further reduce title size */
+  }
+  .section-description-base,
+  .therapyDescription {
+    font-size: 0.8rem; /* Further reduce description size */
+  }
+  .detailsWrapper { width: 60%; }
+  .joinInvite { font-size: 1.2rem; } /* Specific override */
+  .joinBlockWrapper .simple-button-base { min-height: 30px; padding-top: 8px; padding-bottom: 8px; } /* Adjust button height */
+  .therapyTextWrapper .separator-base { margin-top: 15px; }
+  /* .therapyDescription { margin-top: 20px; } */
+  .therapyLinksWrapper { column-gap: 15px; }
+  .linkBtn { column-gap: 15px; } /* Matches wrapper */
+  .eventsMainWrapper { margin: auto; /* Centered */ }
+  .eventColorBar { min-height: 12px; }
+  .eventDate { font-size: 0.75rem; }
+  .eventTitle { font-size: 1.125rem; } /* Jumps back up? Verify */
+}
+
+/* Extra Small Devices (Phones Portrait) */
+@media (max-width: 550px) {
+  .content-wrapper-base.gradient-left::before {
+    background: linear-gradient(
+      to top,
+      var(--gradient-color),
+      transparent
+    );
+  }
+
+  /* Right-to-Left Gradient */
+  .content-wrapper-base.gradient-right::before {
+    background: linear-gradient(
+      to top,
+      var(--gradient-color),
+      transparent
+    );
+  }
+  .link{
+    font-size:0.63rem !important;
+  }
+  .joinText{
+    font-size: 0.63rem !important;
+  }
+  .hiddenMobile { display: none; } /* Hide specific elements */
+
+  .text-wrapper-base {
+    width: 88.58%; /* Almost full width */
+    margin: auto 5.71% 10%; /* Adjust bottom margin */
+  }
+  .introImage{
+    height: 40px;
+    margin-top:2px;
+    margin-bottom:2px;
+  }
+  .section-title-base,
+  .activityTitle,
+  .joinInvite,
+  .eventsTitle {
+    font-size: 1.8rem; /* Larger titles on smallest screens? Verify this */
+  }
+  .therapyQuestion{
+    font-size: 1.7rem;
+  }
+  .section-description-base,
+  .therapyDescription {
+    font-size: 1.2rem; /* Larger descriptions? Verify this */
+  }
+  .detailsWrapper { width: 70%; }
+  .subtitleText { font-size: 1.2rem; } /* Consistent with description? */
+  .therapyTextWrapper { margin: 10% 5.71% auto; row-gap: 8px; }
+  .therapyLinksWrapper { margin-top: 10px; }
+  /*.linkBtn { height: 50px; } !* Back to larger height? *!*/
+  .eventsMainWrapper { margin: 10% auto auto; }
+  .eventsTitle { margin-left: 2px; } /* Specific adjustment */
+}
+@media (max-width: 479px) {
+  .imageWrapper { width: 95%;  justify-content: center }
+  .navWrapper{
+    transform: translateX(calc(-95vw / 2 + 50% + 22px));
+  }
+  .link{
+    font-size:0.59rem !important;
+  }
+  .joinText{
+    font-size: 0.59rem !important;
+  }
+}
+/* Tiny Devices */
+@media (max-width: 440px) {
+  .imageWrapper { width: 100%; }
+  .navWrapper{
+    transform: translateX(calc(-100vw / 2 + 50% + 22px));
+  }
+  .introImage, .navWrapper { /* Overrides for tiny layout if needed */
+    position: relative; /* Was unset? */
+    width: auto; /* Adjust width if needed */
+  }
+}
+.eventH1{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* --- Footer Section Styles --- */
+.footerSection {
+  /* Using the same padding as other major sections for consistency */
+  padding: 80px 5%;
+  background-color: #1a1a1a; /* A dark background for contrast */
+  color: var(--text-color-light);
+  width: 100%;
+}
+
+.footerContentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Main flex container for all the link items */
+.footerLinksContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto the next line on smaller screens */
+  justify-content: center; /* Centers the links in the container */
+  gap: 2rem; /* Provides space between link items */
+  width: 100%;
+  margin-bottom: 4rem; /* Space before the copyright text */
+}
+
+/* Individual link item styling */
+.footerLinkItem {
+  display: flex; /* Creates the side-by-side layout for icon and text */
+  align-items: center; /* Vertically centers the icon with the text block [2][7] */
+  background-color: #2a2a2a;
+  padding: 1.25rem 1.5rem; /* Internal spacing [3] */
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-color-light);
+  min-width: 280px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.footerLinkItem:hover {
+  transform: translateY(-5px);
+  background-color: #383838;
+}
+
+/* Icon wrapper on the left */
+.footerIconWrapper i {
+  font-size: 2.5rem; /* Larger icon size */
+  color: var(--primary-accent-color, #ffffff); /* Use a site-wide accent color or default to white */
+  width: 50px; /* Fixed width for alignment */
+  text-align: center;
+}
+
+/* Text wrapper on the right */
+.footerTextWrapper {
+  display: flex;
+  flex-direction: column; /* Stacks title and description vertically */
+  justify-content: center; /* Vertically centers the text content */
+  align-items: flex-start; /* Aligns text to the left */
+  padding-left: 20px; /* 20px padding from the icon as requested [3] */
+}
+
+.footerLinkTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.footerLinkDesc {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
+  color: #b0b0b0; /* A lighter color for the description */
+  margin-top: 4px;
+}
+
+/* Copyright notice at the bottom */
+.footerCopyright {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: #888;
+    text-align: center;
+}

@@ -5,19 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   {#<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" /> #}
   <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
-  <title>{{ title if title else settings.title }}</title> {# Use page title or default from settings #}
-  <meta name="description" content="{{ description if description else settings.description }}"> {# Use page description or default #}
-  {# Add other meta tags as needed, potentially from settings or page front matter #}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>{{ title if title else settings.title }}</title>
+  <meta name="description" content="{{ description if description else settings.description }}"> 
 </head>
 
 <body class="flex-column preload">
-<!-- Navbar -->
 <div class="imageTextBlock">
   <div class="imageWrapper">
-    {# Use logo from settings.yaml - default removed as it's now in settings.yaml #}
     <img class="introImage" src="{{ settings.logo }}" alt="RADA Logo" />
     <div class="navWrapper">
-      {# Update links to be absolute paths to homepage sections #}
       <a class="link hiddenMobile" href="/#intro">Home</a>
       <a class="link" href="/#about">Par mums</a>
       <a class="link">Arhivs</a> {# Add href="/" or similar if it should link somewhere #}
@@ -30,117 +27,98 @@
 </div>
 
 <main class="main-page mainContainer">
-  {# Define the main content block #}
   {% block main_content %}
     {# --- Intro Section --- #}
     <section class="introSection" id="intro">
       <div class="detailsWrapper">
         <div class="textImageWrapper">
-          <p class="subtitleText">Vieta, kur radīt, mācīties un just.</p>
-          {# Consider making this image configurable #}
-          <img class="secondaryImage" src="/static/assets/42a26737161d740770afe9c77af347cc.png" alt="RADA secondary logo" />
+          <p class="subtitleText">{{ settings.homepage_sections.intro.subtitle }}</p>
+          <img class="secondaryImage" src="{{ settings.homepage_sections.intro.secondary_image }}" alt="RADA secondary logo" />
         </div>
       </div>
-      {# Consider making this image configurable #}
       <img class="scrollDown" src="/static/assets/7dc4ca28cd625bfadee8c1b28599d81c.png" alt="Scroll down" />
     </section>
 
     {# --- About Section --- #}
-    <section class="aboutSection section-base" id="about" style="--src:url(/static/assets/c128edbcbba85156f372a4febc76521b.png)">
+    <section class="aboutSection section-base" id="about" style="--src:url({{ settings.homepage_sections.about.background_image }})">
       <div class="aboutContentWrapper content-wrapper-base gradient-left">
         <div class="aboutTextWrapper text-wrapper-base text-wrapper-left zUp">
-          <p class="aboutTitle section-title-base">Par Mums</p>
+          <p class="aboutTitle section-title-base">{{ settings.homepage_sections.about.title }}</p>
           <hr class="separator-base" size="1" />
           <article class="aboutDescription section-description-base">
-            RADA Studija ir jauniešu vadīta un dibināta biedrība, kas veido dažādus pasākumus un nodarbības ar mērķi vecināt emocionālo inteliģenci, sadarbību un radošumu. Mūsu nodarbību saturs atsaucās uz mākslas terapijā pielietotām metodēm, fokusējoties uz mākslas terapeitisko procesu nevis rezultātu.
-            <br /><br />
-            Mūsu pasākumi ļauj cilvēkiem atgriezties tagadnē, kas noņem stresu, veicina pašpārliecinātību, piederības sajūtu un spēju darīt.
-            <br />
-            Mēs veidojam telpu, kur cilvēki var sanākt kopā.
+            {{ settings.homepage_sections.about.description | replace('\n', '<br />') | safe }}
           </article>
         </div>
       </div>
     </section>
 
     {# --- Why Section --- #}
-    <section class="whySection section-base" id="why" style="--src:url(/static/assets/158c703873c03616faa07b3dbbc159fc.png)">
+    <section class="whySection section-base" id="why" style="--src:url({{ settings.homepage_sections.why.background_image }})">
       <div class="whyContentWrapper content-wrapper-base gradient-right">
         <div class="whyTextWrapper text-wrapper-base text-wrapper-right zUp">
-          <p class="whyTitle section-title-base">Kāpēc?</p>
+          <p class="whyTitle section-title-base">{{ settings.homepage_sections.why.title }}</p>
           <hr class="separator-base" size="1" />
-          <article class="whyDescription section-description-base">RADA darbības galvenie mērķi ir veicināt emocionālo izglītību un empātiju, drošību un uzticību sevī un citos, piedāvājot izglītjošu saturu, un dod iespēju ikvienam izmēģināt ekspertu atzītas un pieejamas mākslas terapijas metodes.</article>
+          <article class="whyDescription section-description-base">{{ settings.homepage_sections.why.description | replace('\n', '<br />') | safe }}</article>
         </div>
       </div>
     </section>
 
     {# --- History Section --- #}
-    <section class="historySection section-base" id='history' style="--src:url(/static/assets/82e5ec76f073cbd83f8c46f4ad57bf34.png)">
+    <section class="historySection section-base" id='history' style="--src:url({{ settings.homepage_sections.history.background_image }})">
       <div class="historyContentWrapper content-wrapper-base gradient-left">
         <div class="historyTextWrapper text-wrapper-base text-wrapper-left zUp">
-          <p class="historyTitle section-title-base">Vēsture</p>
+          <p class="historyTitle section-title-base">{{ settings.homepage_sections.history.title }}</p>
           <hr class="separator-base" size="1" />
           <article class="historyDescription section-description-base">
-            RADA darbojas kopš 2021. gada oktobra un savu darbību sāka ar sociālo projektu “Safe Space”, taču kā “RADA Studija” ir pazīstama kopš 2022. gada septembra.
-            <br />
-            Šo gadu laikā RADA veidotāji ir izveidojuīši savu kopienu par NVO biedrību, vadījuši pasākumus, devušies izbraucienos un pārvērtuši sirdslietu par kopīgu ceļu.
+            {{ settings.homepage_sections.history.description | replace('\n', '<br />') | safe }}
           </article>
         </div>
       </div>
     </section>
 
     {# --- Activity Section --- #}
-    <section class="activitySection section-base" id="activities" style="--src:url(/static/assets/648e7a2f3f275dc6a571eaadff84d0d4.png)">
+    <section class="activitySection section-base" id="activities" style="--src:url({{ settings.homepage_sections.activity.background_image }})">
       <div class="activityContentWrapper content-wrapper-base gradient-right" >
         <div class="activityTextWrapper text-wrapper-base text-wrapper-right zUp">
-          <p class="section-title-base activityTitle">Mūsu darbība izpaužas dažādi</p>
+          <p class="section-title-base activityTitle">{{ settings.homepage_sections.activity.title }}</p>
           <hr class="separator-base" size="1" />
           <article class="activityDescription section-description-base">
-            Piedāvājam bezmaksas pasākumus, kuros jebkurš interesents var pievienoties un izmēģināt mākslas terapijas metodes, meditāciju, iesaistīties diskusijās un kopā pabūt drošā, mierīgā vidē.
-            <br /><br />
-            Dodamies izbraucienos ciemos pie citām organizācijām, skolām, nometnēm vai interesentu grupām, izstāstot gan par mākslas terapijas tēmu, gan iemēģinot tās metodes. Attīstam sociālo mediju platformu, piedalāmies citu organizāciju pasākumos un vienmēr esam atvērti vēl citām darbības izpausmēm.
+            {{ settings.homepage_sections.activity.description | replace('\n', '<br />') | safe }}
           </article>
         </div>
       </div>
     </section>
 
     {# --- Join Us Section --- #}
-    <section class="joinUsSection section-base" id="join" style="--src:url(/static/assets/71f45b0438ad3b7f2124ae0c7e1342c9.png)">
+    <section class="joinUsSection section-base" id="join" style="--src:url({{ settings.homepage_sections.join_us.background_image }})">
       <div class="joinContentWrapper content-wrapper-base gradient-left">
         <div class="joinBlockWrapper text-wrapper-base text-wrapper-left zUp">
-          <p class="section-title-base joinInvite">Pievienojies arī tu!</p>
+          <p class="section-title-base joinInvite">{{ settings.homepage_sections.join_us.title }}</p>
           <hr class="separator-base" size="1" />
           <article class="joinDescription section-description-base">
-            Šajā pasaulē, kas ir piesātināta ar visdažādākajām emocijām, pārdzīvojumiem un rosīgām enerģijas plūsmām, ir viegli aizmirst parūpēties par to pasauli, kas ir mūsos iekšā.
-            <br /><br />
-            RADA mērķis ir sniegt katram drošu vidi, kurā ar mākslu un mākslas terapijas metodēm radoši izpausties un komunicēt, ļaujot ievest mieru mūsu reizēm pārāk steidzīgajās iekdienās.  Aicinām arī Tevi pievienoties kādā no mūsu pasākumiem un ļauties tam siltumam, kuru izstaro kopābūšana!
+            {{ settings.homepage_sections.join_us.description | replace('\n', '<br />') | safe }}
           </article>
           <button class="simple-button-base">
-            <span>Pievienojies RADA</span>
+            <span>{{ settings.homepage_sections.join_us.button_text }}</span>
           </button>
         </div>
       </div>
     </section>
 
     {# --- Therapy Section --- #}
-    <section class="therapySection" id="therapy" style="--src:url(/static/assets/f42078ee1ac7263bf5a104339b4a9189.png)">
+    <section class="therapySection" id="therapy" style="--src:url({{ settings.homepage_sections.therapy.background_image }})">
       <div class="therapyContentWrapper">
         <div class="therapyTextWrapper">
           <div class="therapyMainTextWrapper">
-            <p class="section-title-base therapyQuestion">Kāpēc mākslas terapija?</p>
+            <p class="section-title-base therapyQuestion">{{ settings.homepage_sections.therapy.title }}</p>
             <hr class="separator-base" size="1" />
             <article class="section-description-base therapyDescription">
-              Mākslas terapija izmanto radošo procesu terapeitiskā kontekstā, lai uzlabotu un veicinātu cilvēka garīgo, emocionālo un fizisko labklājību.
+              {{ settings.homepage_sections.therapy.description | replace('\n', '<br />') | safe }}
               <br /><br />
-              RADA Studija izmanto tieši mākslas terapijas metodes, jo tās ir daudzveidīgas, proti, ietver gan vizuāli plastiskās, gan mūzikas, dejas un drāmas elementus, un ļauj katram pašam izvēlēties, cik dziļi šajā procesā ieguldīties.
-              <br /><br />
-              Mēs piedāvājam iemācīties kā šos mākslas terapijas līdzekļus pielietot ikdienā pēc savām spējām un vajadzībām.
-              {#<br /><br />#}
               Vairāk informācijas šeit:
             </article>
           </div>
           <div class="therapyLinksWrapper">
-            {# Consider making these links configurable #}
-            
             <a href="https://arttherapy.lv/lv/makslas-terapija/kas-ir-makslas-terapija" target="_blank" class="simple-button-base linkBtn" rel="noopener noreferrer">
               <img class="federationLogo" src="/static/assets/external-link.svg" alt="External link icon" />
               <span class="federationText">Uzzināt vairāk</span>
@@ -154,24 +132,21 @@
       </div>
     </section>
 
-    {# --- Events Section (Now Dynamic) --- #}
+    {# --- Events Section --- #}
     <section class="eventsSection section-base" id="events" style="--src:url(/static/assets/eac0bd2c9d35952d9077cf0d7ed914ac.png)">
       <div class="eventsContentWrapper content-wrapper-base gradient-overlay gradient-bottom">
         <div class="eventsMainWrapper">
           <p class="section-title-base eventsTitle">Pasākumu saraksts</p>
           <hr class="separator-base" size="1" />
           <div class="eventsListWrapper">
-            {# Check if the event collection exists and has items #}
             {% set eventslist = collections.event | reverse %}
             {% if eventslist | length > 0 %}
               {% for event in eventslist %}
-                {# Link the entire card to the event page #}
                 <a href="{{ event.url | url }}" class="eventCardLink" style="text-decoration: none;">
                   <div class="eventCard">
                     <div class="eventInfoWrapper">
                       <div class="eventDateInfo">
                         <div class="eventColorBar"></div>
-                        {# Format the date using the readableDate filter #}
                         <p class="eventDate">
                           <time datetime="{{ event.date | readableISODate | slugify }}">
                             {{ event.date | readableDate }}
@@ -188,28 +163,44 @@
                 </a>
               {% endfor %}
             {% else %}
-              <p style="color: white;">Nav aktuālu pasākumu.</p> {# Message if no events #}
+              <p style="color: white;">Nav aktuālu pasākumu.</p> 
             {% endif %}
           </div>
         </div>
       </div>
     </section>
-  {% endblock %} {# End of main_content block #}
+  {% endblock %} 
 </main>
 
-{# --- Footer (Optional, add if needed) --- #}
-{# {% if footerlinks.links %}
-  <footer>
-    <ul>
+{# --- Footer Section --- #}
+{% if footerlinks.links %}
+<footer class="footerSection" id="footer">
+  <div class="footerContentWrapper">
+    <div class="footerLinksContainer">
+      {# Loop through each link defined in _data/footerlinks.yaml #}
       {% for item in footerlinks.links %}
-        <li>
-          <a href="{{ item.url }}">{{ item.title }}</a>
-          <p>{{ item.desc }}</p>
-        </li>
+        <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" class="footerLinkItem">
+          {# Configurable icon on the left #}
+          <div class="footerIconWrapper">
+            <i class="{{ item.icon | default('fa-solid fa-link') }}"></i>
+          </div>
+          {# Vertically centered text content on the right #}
+          <div class="footerTextWrapper">
+            <span class="footerLinkTitle">{{ item.title }}</span>
+            {# Only show the description if it exists #}
+            {% if item.desc %}
+              <span class="footerLinkDesc">{{ item.desc }}</span>
+            {% endif %}
+          </div>
+        </a>
       {% endfor %}
-    </ul>
-  </footer>
-{% endif %} #}
+    </div>
+    <div class="footerCopyright">
+        &copy; {{ "now" | yearly }} {{ settings.name }}. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+{% endif %}
 
 {# --- Navbar Scroll Script --- #}
 <script>
@@ -219,16 +210,13 @@
 
     if (!imageTextBlock || !introSection) {
       console.error("Required elements for navbar animation not found.");
-      return; // Exit if elements aren't found
+      return; 
     }
 
-    // Calculate trigger point relative to the intro section's bottom edge meeting the navbar's bottom edge
     const triggerPoint = introSection.offsetTop + introSection.offsetHeight - imageTextBlock.offsetHeight;
 
     function handleScroll() {
       const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-
-      // Use the calculated triggerPoint
       if (scrollY > triggerPoint) {
         if (!imageTextBlock.classList.contains('navbar-scrolled')) {
           imageTextBlock.classList.add('navbar-scrolled');
@@ -242,12 +230,10 @@
 
     window.addEventListener('scroll', handleScroll, { passive: true }); // Improve scroll performance
 
-    // Run on load
     handleScroll();
   });
 </script>
 
-{# --- Preload Class Removal Script --- #}
 <script>
   window.addEventListener('load', () => {
     document.body.classList.remove('preload');
