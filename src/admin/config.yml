@@ -1,5 +1,3 @@
-# FILE: config.yml
-
 backend:
   name: git-gateway
   branch: master
@@ -8,7 +6,54 @@ public_folder: "/static/img"
 local_backend: true
 
 collections:
-  # ... (Pages, Posts, Events collections are unchanged) ...
+  # RESTORED: The 'Pages' collection
+  - label: "Pages"
+    name: "pages"
+    folder: "src/pages"
+    create: true
+    editor:
+      preview: false    
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Remove from Navigation", name: "eleventyExcludeFromCollections", widget: "boolean", default: false }
+      - { label: "Navigation Order", name: "order", widget: "number", default: 0 }
+
+  # RESTORED: The 'Posts' collection for your blog
+  - label: "Posts"
+    name: "blog"
+    folder: "src/posts"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - widget: select
+        label: "tags"
+        name: "tags"
+        multiple: true
+        create: true
+        options: ["Tags", "created", "from", "config.yml"]
+
+  # RESTORED: The 'Events' collection
+  - label: "Events"
+    name: "events"
+    folder: "src/events"
+    create: true
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Event Date", name: "date", widget: "datetime" }
+      - { label: "Short Description (for card)", name: "description", widget: "string" }
+      - { label: "Event Details (Main Content)", name: "body", widget: "markdown" }
+
+  # UPDATED: The 'Settings' collection with dynamic homepage sections
   - label: "Settings"
     name: "settings"
     editor:
@@ -69,4 +114,17 @@ collections:
                   - { label: "Link Text", name: "text", widget: "string" }
                   - { label: "Link URL", name: "url", widget: "string" }
 
-      # ... (Footer Links file is unchanged) ...
+      # Footer Links collection (unchanged)
+      - label: "Footer Links"
+        name: "footerlinks"
+        file: "src/_data/footerlinks.yaml"
+        fields:
+          - label: Footer Links
+            name: links
+            widget: list
+            collapsed: false
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: URL, name: url, widget: string }
+              - { label: Description, name: desc, widget: string, required: false }
+              - { label: Icon, name: icon, widget: string, hint: "Enter a Font Awesome class, e.g., 'fab fa-instagram' or 'fas fa-envelope'" }
