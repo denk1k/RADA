@@ -114,19 +114,21 @@
             <hr class="separator-base" size="1" />
             <article class="section-description-base therapyDescription">
               {{ settings.homepage_sections.therapy.description | replace('\n', '<br />') | safe }}
-              <br /><br />
-              Vairāk informācijas šeit:
             </article>
           </div>
+          
+          {# MODIFIED: This wrapper now contains a dynamic loop #}
           <div class="therapyLinksWrapper">
-            <a href="https://arttherapy.lv/lv/makslas-terapija/kas-ir-makslas-terapija" target="_blank" class="simple-button-base linkBtn" rel="noopener noreferrer">
-              <img class="federationLogo" src="/static/assets/external-link.svg" alt="External link icon" />
-              <span class="federationText">Uzzināt vairāk</span>
-            </a>
-            <a href="https://www.arttherapyfederation.eu/" target="_blank" class="simple-button-base linkBtn" rel="noopener noreferrer">
-              <img class="federationLogo" src="/static/assets/external-link.svg" alt="External link icon" />
-              <span class="federationText">Art Therapy Federation</span>
-            </a>
+            {# First, check if the links list exists and has items #}
+            {% if settings.homepage_sections.therapy.links %}
+              {# Loop through each link in the list and create an anchor tag for it #}
+              {% for link in settings.homepage_sections.therapy.links %}
+                <a href="{{ link.url }}" target="_blank" class="simple-button-base linkBtn" rel="noopener noreferrer">
+                  <img class="federationLogo" src="/static/assets/external-link.svg" alt="External link icon" />
+                  <span class="federationText">{{ link.text }}</span>
+                </a>
+              {% endfor %}
+            {% endif %}
           </div>
         </div>
       </div>

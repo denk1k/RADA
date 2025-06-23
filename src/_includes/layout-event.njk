@@ -2,7 +2,7 @@
 
 {# Override the main_content block from base.njk #}
 {% block main_content %}
-<article class="event-page-content" style="padding: 2rem 5.71%; color: var(--text-color-dark); margin-top: 100px;"> {# Add margin-top to avoid overlap with fixed navbar #}
+<article class="event-page-content" style="padding: 2rem 5.71%; color: var(--text-color-dark); margin-top: 100px; min-height: calc(100vh - 100px - 2rem);"> {# Add margin-top to avoid overlap with fixed navbar #}
   <h1 class="eventH1">{{ title }}</h1>
   {# Check if date exists before displaying #}
   {% if date %}
