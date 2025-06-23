@@ -7,18 +7,18 @@ local_backend: true
 
 collections:
   # RESTORED: The 'Pages' collection
-  - label: "Pages"
-    name: "pages"
-    folder: "src/pages"
-    create: true
-    editor:
-      preview: false    
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Remove from Navigation", name: "eleventyExcludeFromCollections", widget: "boolean", default: false }
-      - { label: "Navigation Order", name: "order", widget: "number", default: 0 }
+  # - label: "Pages"
+  #   name: "pages"
+  #   folder: "src/pages"
+  #   create: true
+  #   editor:
+  #     preview: false    
+  #   fields:
+  #     - { label: "Title", name: "title", widget: "string" }
+  #     - { label: "Author", name: "author", widget: "string" }
+  #     - { label: "Body", name: "body", widget: "markdown" }
+  #     - { label: "Remove from Navigation", name: "eleventyExcludeFromCollections", widget: "boolean", default: false }
+  #     - { label: "Navigation Order", name: "order", widget: "number", default: 0 }
 
   # RESTORED: The 'Posts' collection for your blog
   - label: "Events"
