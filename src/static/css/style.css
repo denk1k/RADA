@@ -390,6 +390,7 @@ body:not(.preload) .navWrapper {
   min-height: 1px;
   background-color: var(--separator-color);
   margin-top: 8px;
+  border:0;
   margin-bottom: 15px;
 }
 
@@ -510,7 +511,7 @@ body:not(.preload) .navWrapper {
   row-gap: 0;
 }
 
-.therapyTextWrapper .separator-base { 
+.therapyTextWrapper .separator-base {
   margin-top: 17px;
   margin-bottom: 23px;
 }
@@ -610,7 +611,7 @@ body:not(.preload) .navWrapper {
   margin-top:3px;
 }
 .eventShortDescription{
-  font-family: 'EB Garamond', serif; color: var(--text-color-light); font-size: 0.9rem; 
+  font-family: 'EB Garamond', serif; color: var(--text-color-light); font-size: 0.9rem;
 }
 /* --- Gradient Overlays --- */
 .content-wrapper-base::before,
@@ -764,7 +765,7 @@ body:not(.preload) .navWrapper {
   .subtitleText { font-size: 1.2rem; }
   .therapyTextWrapper { margin: 10% 5.71% auto; row-gap: 8px; }
   .therapyLinksWrapper { margin-top: 20px; }
-  .linkBtn { width: 100%; } 
+  .linkBtn { width: 100%; }
   .eventsTitle { margin-left: 2px; }
 }
 
