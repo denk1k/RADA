@@ -156,7 +156,7 @@
                       <p class="eventTitle">{{ event.data.title }}</p>
                       {# Optionally display the short description if it exists #}
                       {% if event.data.description %}
-                        <p class="eventShortDescription" style="font-family: 'EB Garamond', serif; color: var(--text-color-light); font-size: 0.9rem; margin-top: 5px;">{{ event.data.description }}</p>
+                        <p class="eventShortDescription">{{ event.data.description }}</p>
                       {% endif %}
                     </div>
                   </div>
@@ -196,7 +196,7 @@
       {% endfor %}
     </div>
     <div class="footerCopyright">
-        &copy; {{ "now" | yearly }} {{ settings.name }}. All Rights Reserved.
+        &copy; <span id="current-year"></span> {{ settings.name }}. All Rights Reserved.
     </div>
   </div>
 </footer>
@@ -237,6 +237,14 @@
 <script>
   window.addEventListener('load', () => {
     document.body.classList.remove('preload');
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const yearSpan = document.getElementById('current-year');
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
   });
 </script>
 

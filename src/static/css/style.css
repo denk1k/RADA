@@ -16,7 +16,7 @@
 /* --- Reset & Base --- */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--navheight); /* Adjusted from 68px */
+  scroll-padding-top: var(--navheight);
 }
 
 html,
@@ -125,7 +125,7 @@ section {
 body {
   line-height: 1;
   background-color: var(--background-light);
-  font-family: "Now", Helvetica, Arial, sans-serif; /* Default font */
+  font-family: "Now", Helvetica, Arial, sans-serif;
 }
 
 ol,
@@ -154,18 +154,18 @@ a,
 button {
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-  text-decoration: none; /* Add base */
+  text-decoration: none;
 }
 
 img {
-  max-width: 100%; /* Add base */
-  height: auto; /* Add base */
+  max-width: 100%;
+  height: auto;
 }
 
 section {
-  min-height: fit-content; /* Existing */
-  position: relative; /* Add base for pseudo-elements */
-  overflow: hidden; /* Prevent gradient overflow issues */
+  min-height: fit-content;
+  position: relative;
+  overflow: hidden;
 }
 
 /* --- Fonts --- */
@@ -179,16 +179,16 @@ section {
 }
 /* --- Utility --- */
 .zUp {
-  position: relative; /* Ensure z-index works */
-  z-index: 1; /* Bring text above gradient */
+  position: relative;
+  z-index: 1;
 }
 
 /* --- Main Layout --- */
 .main-page.mainContainer {
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Existing */
-  background-color: var(--background-light); /* Existing */
+  overflow: hidden;
+  background-color: var(--background-light);
 }
 
 /* --- Header / Navbar --- */
@@ -207,24 +207,22 @@ section {
 
 .imageWrapper {
   display: flex;
-  justify-content: space-between; /* Always space-between */
+  justify-content: space-between;
   align-items: center;
   margin: 12px auto;
   width: 87.96%;
   height: var(--navheight);
-  max-width: 100vw; /* Prevent overflow */
-  position: relative; /* For transform calculations */
+  max-width: 100vw;
+  position: relative;
 }
 
 .introImage {
   height: 44px;
-  width: auto; /* Let image define width */
+  width: auto;
   visibility: visible;
-  /* Animation styles */
   opacity: 0;
   transform: translateX(-30px);
-  /* Transition only when preload class is NOT present */
-  transition: none; /* Disable transition initially */
+  transition: none;
 }
 
 body:not(.preload) .introImage {
@@ -235,11 +233,8 @@ body:not(.preload) .introImage {
   display: flex;
   align-items: center;
   column-gap: 20px;
-  /* Animation styles */
-  /* Adjust this translateX based on precise logo width and desired centering effect */
-  transform: translateX(calc(-87.96vw / 2 + 50%)); /* Approximate adjustment  + 22px */
-  /* Transition only when preload class is NOT present */
-  transition: none; /* Disable transition initially */
+  transform: translateX(calc(-87.96vw / 2 + 50%));
+  transition: none;
 }
 
 body:not(.preload) .navWrapper {
@@ -256,12 +251,6 @@ body:not(.preload) .navWrapper {
   transform: translateX(0);
 }
 
-/* Optional: Scrolled background feedback */
-/* .imageTextBlock.navbar-scrolled {
-    background-color: #e0f5e8;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-} */
-
 .navWrapper .link {
   font-size: 0.6875rem;
   line-height: 1.23;
@@ -275,18 +264,17 @@ body:not(.preload) .navWrapper {
 }
 
 .joinButton {
-  display: flex; /* Keeps content centered */
+  display: flex;
   background-color: transparent;
-  padding: 5.5px 10px; /* Simplified padding */
+  padding: 5.5px 10px;
   border-radius: 12px;
   border: 1px solid var(--text-color-dark);
-  outline: none; /* Use border instead */
+  outline: none;
 }
 .joinButton:hover {
   background-color: var(--text-color-dark);
 }
 .joinButton:hover .joinText {
-  /* Target span directly */
   color: white;
 }
 
@@ -298,8 +286,8 @@ body:not(.preload) .navWrapper {
   color: var(--text-color-dark);
   text-align: center;
   text-transform: uppercase;
-  background-color: transparent; /* Inherits from button */
-  transition: color 0.3s ease-in-out; /* Add transition for text color */
+  background-color: transparent;
+  transition: color 0.3s ease-in-out;
 }
 
 /* --- Intro Section --- */
@@ -309,17 +297,17 @@ body:not(.preload) .navWrapper {
   justify-content: center;
   width: 100%;
   height: calc(100vh - var(--navheight));
-  align-items: center; /* Center vertically */
+  align-items: center;
 }
 
 .detailsWrapper {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Was place-content */
+  justify-content: center;
   align-items: center;
   width: 400px;
-  max-width: 90%; /* Prevent overflow on small screens */
+  max-width: 90%;
 }
 
 .textImageWrapper {
@@ -331,7 +319,7 @@ body:not(.preload) .navWrapper {
 }
 
 .subtitleText {
-  display: flex; /* Already flex, remove */
+  display: flex;
   justify-content: center;
   width: 65%;
   font-weight: 500;
@@ -344,7 +332,7 @@ body:not(.preload) .navWrapper {
 }
 
 .secondaryImage {
-  width: 100%; /* Max width set by parent */
+  width: 100%;
 }
 
 .scrollDown {
@@ -353,7 +341,6 @@ body:not(.preload) .navWrapper {
   left: 50%;
   transform: translateX(-50%);
   width: 59px;
-  /* Assuming this is specific to intro, maybe needs adjustment if reused */
 }
 
 /* --- Base Section Styles --- */
@@ -367,19 +354,18 @@ body:not(.preload) .navWrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: calc(100vh - var(--navheight)); /* Use min-height for flexibility */
-  position: relative; /* For absolute pseudo-elements */
+  min-height: calc(100vh - var(--navheight));
+  position: relative;
 }
 
 .text-wrapper-base {
   display: flex;
   flex-direction: column;
   width: 25%;
-  row-gap: 10px; /* A reasonable default gap */
-  margin: auto 0; /* Vertical centering */
+  row-gap: 10px;
+  margin: auto 0;
 }
 
-/* Text alignment modifiers */
 .text-wrapper-left {
   margin-left: 5.71%;
   margin-right: auto;
@@ -391,11 +377,11 @@ body:not(.preload) .navWrapper {
 
 .section-title-base {
   font-family: "Now", Helvetica, Arial, serif;
-  color: white; /* Changed from rgb(255, 255, 255) */
-  font-weight: 700; /* Most common weight */
+  color: white;
+  font-weight: 700;
   line-height: 1.23;
-  font-size: 2.1rem; /* Most common size */
-  width: 100%; /* Titles take full width of their wrapper */
+  font-size: 2.1rem;
+  width: 100%;
 }
 
 .separator-base {
@@ -403,192 +389,126 @@ body:not(.preload) .navWrapper {
   height: 1px;
   min-height: 1px;
   background-color: var(--separator-color);
-  margin-top: 8px; /* Average margin */
-  margin-bottom: 15px; /* Average margin */
+  margin-top: 8px;
+  margin-bottom: 15px;
 }
 
 .section-description-base {
   font-family: "EB Garamond", Helvetica, Arial, serif;
   color: var(--text-color-light);
-  line-height: 1.2; /* Slightly more readable default */
-  font-size: 1.3rem; /* Most common size */
+  line-height: 1.2;
+  font-size: 1.3rem;
   width: 100%;
 }
 
 /* --- Section Specific Styles & Overrides --- */
-
-/* About Section */
-/* .aboutSection uses .section-base */
-/* .aboutContentWrapper uses .content-wrapper-base, .gradient-left */
-/* .aboutTextWrapper uses .text-wrapper-base, .text-wrapper-left, .zUp */
-/* .aboutTitle uses .section-title-base */
-/* .aboutTextWrapper .separator-base { margin-top: 5px; margin-bottom: 13px; } */
-/* .aboutDescription uses .section-description-base */
-.aboutDescription { line-height: 1; } /* Specific override */
-
-/* Why Section */
-/* .whySection uses .section-base */
-/* .whyContentWrapper uses .content-wrapper-base, .gradient-right */
-/* .whyTextWrapper uses .text-wrapper-base, .text-wrapper-right, .zUp */
-/* .whyTitle uses .section-title-base */
-/* .whyTextWrapper .separator-base { margin-top: 11px; margin-bottom: 12px; } */
-/* .whyDescription uses .section-description-base */
-.whyDescription { line-height: 1; } /* Specific override */
-
-/* History Section */
-/* .historySection uses .section-base */
-/* .historyContentWrapper uses .content-wrapper-base, .gradient-left */
-/* .historyTextWrapper uses .text-wrapper-base, .text-wrapper-left, .zUp */
-/* .historyTitle uses .section-title-base */
-/* .historyTextWrapper .separator-base { margin-top: 5px; margin-bottom: 12px; } */
-/* .historyDescription uses .section-description-base */
-.historyDescription { font-weight: 500; line-height: 1; } /* Specific overrides */
-
-/* Activity Section */
-/* .activitySection uses .section-base */
-/* .activityContentWrapper uses .content-wrapper-base, .gradient-right */
-/* .activityTextWrapper uses .text-wrapper-base, .text-wrapper-right, .zUp */
-/* .activityTitle { 
-  font-family: "Now", Helvetica, Arial, serif;
-  color: white;
-  font-weight: 600;
-  font-size: 1.75rem;
-  line-height: 1.23;
-} */
-/* .activityTextWrapper .separator-base { margin-top: 11px; margin-bottom: 11px; } Gap set by parent row-gap, adjust if needed */
-/* .activityDescription uses .section-description-base */
-.activityDescription { line-height: 1; } /* Specific override */
-
-/* Join Us Section */
-/* .joinUsSection uses .section-base */
-/* .joinContentWrapper uses .content-wrapper-base, .gradient-left */
-/* .joinBlockWrapper uses .text-wrapper-base, .text-wrapper-left, .zUp */ /* Renamed from joinTextWrapper */
-.joinInvite { /* Specific styling */
-  font-size: 2.1rem;
-}
-.joinBlockWrapper .separator-base {
-  /* margin-top: 9px; */
-  /* margin-bottom: 18px; */
-  /* width: 244px; Specific width */
-  max-width: 100%; /* Ensure responsiveness */
-}
-/* .joinDescription uses .section-description-base */
-.joinDescription { line-height: 1; } /* Specific override */
+.aboutDescription { line-height: 1; }
+.whyDescription { line-height: 1; }
+.historyDescription { font-weight: 500; line-height: 1; }
+.activityDescription { line-height: 1; }
+.joinInvite { font-size: 2.1rem; }
+.joinBlockWrapper .separator-base { max-width: 100%; }
+.joinDescription { line-height: 1; }
 
 /* --- Buttons (Simple / Therapy Link) --- */
 .simple-button-base {
-  display: inline-flex; /* Use inline-flex for wrapping */
-  align-items: center; /* Vertically center content */
-  justify-content: center; /* Horizontally center content */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 20px;
   border: 1px solid white;
-  border-radius: 10px; /* Slightly different from joinButton */
+  border-radius: 10px;
   background: transparent;
-  color: white; /* Default text color */
+  color: white;
   font-family: "Now", Helvetica, sans-serif;
   font-size: 1rem;
-  font-weight: 400; /* Base weight */
+  font-weight: 400;
   text-align: center;
-  margin-top: 15px; /* Common margin */
-  width: max-content; /* Fit content width */
+  margin-top: 15px;
+  width: max-content;
   opacity: 1;
-  mix-blend-mode: normal; /* Existing */
+  mix-blend-mode: normal;
+  /* MODIFIED: Add transform and box-shadow to transition for smooth animation */
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.simple-button-base span { /* Style span within */
-  color: inherit; /* Inherit color from button */
+.simple-button-base span {
+  color: inherit;
   font-size: inherit;
   font-family: inherit;
-  transition: color 0.3s ease-in-out; /* Match button transition */
+  transition: color 0.3s ease-in-out;
 }
 
 .simple-button-base:hover {
   background: white;
   border-color: var(--text-color-dark);
   color: var(--text-color-dark);
+  /* NEW: Add transform and shadow for the "lift" effect on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
-/* Hover state for span is covered by inheriting color */
 
-/* Therapy Section Link Button */
 .linkBtn {
-  /* Inherits from simple-button-base, apply overrides */
   column-gap: 14px;
-  /*height: 50px;*/
   background-color: rgba(217, 217, 217, 0.6);
-  /*padding: 16px 16px 16px 11px;*/
-  margin: 0; /* Override margin-top */
-  width: auto; /* Override width */
-  border: 1px solid transparent; /* Override border */
-  color: black; /* Override text color */
-  border-radius: 4px; /* Example override if needed */
+  margin: 0;
+  width: auto;
+  border: 1px solid transparent;
+  color: black;
+  border-radius: 4px;
   justify-content: start;
-  /* width: 100%; */
 }
 .linkBtn:hover {
-  background-color: rgb(217, 217, 217); /* Darken slightly on hover */
+  background-color: rgb(217, 217, 217);
   border-color: transparent;
   color: black;
+  /* NEW: The lift effect is inherited from .simple-button-base:hover */
 }
 
 .federationLogo {
   width: 32px;
-  height: auto; /* Maintain aspect ratio */
-  vertical-align: middle; /* Align with text */
+  height: auto;
+  vertical-align: middle;
 }
 
 .federationText {
-  /* Style is within the span inside linkBtn */
   font-size: 0.9375rem;
   line-height: 1.23;
   font-family: "Now", Helvetica, Arial, serif;
-  /* Color is inherited from linkBtn */
 }
 
 /* --- Therapy Section --- */
 .therapySection {
-  /* Uses .section-base but with different background */
   display: flex;
   flex-direction: column;
   width: 100%;
-  background: var(--src) -270% center / cover repeat; /* Specific background */
+  background: var(--src) -270% center / cover repeat;
 }
 
 .therapyContentWrapper {
-  /* Does not use content-wrapper-base due to full overlay */
   display: flex;
   flex-direction: column;
-  width: 100%; /* Was 100vw */
+  width: 100%;
   min-height: calc(100vh - var(--navheight));
   background-color: var(--gradient-color-therapy);
   position: relative;
-  padding: 0; /* Reset padding */
+  padding: 0;
 }
 
 .therapyTextWrapper {
-  /* Does not use text-wrapper-base */
   display: flex;
   flex-direction: column;
   row-gap: 22px;
-  margin: auto 5.71%; /* Horizontal margins, vertical centering */
-  /* padding: 40px 0; Add some vertical padding */
-  max-width: 88.58%; /* Ensure content doesn't touch edges */
-  z-index: 1; /* Above background color */
+  margin: auto 5.71%;
+  max-width: 88.58%;
+  z-index: 1;
 }
 
 .therapyMainTextWrapper {
   display: flex;
   flex-direction: column;
-  row-gap: 0; /* Existing */
+  row-gap: 0;
 }
-
-/* .therapyQuestion {
-
-  font-family: "Now", Helvetica, Arial, serif;
-  color: white;
-  font-weight: 700;
-  font-size: 2.125rem;
-  line-height: 1.23;
-} */
 
 .therapyTextWrapper .separator-base { 
   margin-top: 17px;
@@ -596,26 +516,21 @@ body:not(.preload) .navWrapper {
 }
 
 .therapyDescription {
-  /* Uses .section-description-base styling */
-  /* line-height: 1.23; Existing */
-  text-align: justify; /* Specific */
+  text-align: justify;
 }
 
 .therapyLinksWrapper {
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  flex-wrap: wrap;
   column-gap: 27px;
-  row-gap: 15px; /* Add row gap for wrapping */
-  margin-top: 10px; /* Adjusted margin */
+  row-gap: 15px;
+  margin-top: 10px;
 }
 
 /* --- Events Section --- */
-/* .eventsSection uses .section-base */
-
 .eventsContentWrapper {
-  /* Uses .content-wrapper-base, .gradient-overlay, .gradient-bottom */
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
+  justify-content: center;
+  align-items: center;
 }
 
 .eventsMainWrapper {
@@ -623,73 +538,80 @@ body:not(.preload) .navWrapper {
   display: flex;
   flex-direction: column;
   row-gap: 16px;
-  margin: 0; /* Remove margin, parent centers it */
-  width: 88.47%;
-  /*max-width: 1200px; !* Add a max-width *!*/
-  z-index: 1; /* Above gradient */
-  /* padding: 40px 0; Add padding */
   margin: 10% auto auto;
+  width: 88.47%;
+  z-index: 1;
   padding-bottom:10%;
 }
-
-/* .eventsTitle {
-  font-family: "Now", Helvetica, Arial, serif;
-  color: white;
-  font-weight: 700;
-  font-size: 2.125rem;
-  line-height: 1.23;
-} */
 
 .eventsListWrapper {
   display: flex;
   flex-direction: column;
-  row-gap: 1rem; /* Add gap between cards */
+  row-gap: 1rem;
+}
+
+/* NEW: Add link class for hover targeting */
+.eventCardLink {
+  display: block; /* Make the link a block element */
+  text-decoration: none;
+  border-radius: 11px; /* Match the card's border-radius */
+  /* NEW: Add transition for the hover effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.eventCardLink:hover {
+  /* NEW: Add the lift and shadow effect to the entire link area */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .eventCard {
-  display: flex; /* Keeps direction column */
+  display: flex;
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0.349);
   border-radius: 11px;
-  padding: 0.9rem 1.125rem 1rem; /* Apply padding directly */
+  padding: 0.9rem 1.125rem 1rem;
+  /* REMOVED: Transition is now on the parent .eventCardLink */
 }
 
 .eventInfoWrapper {
   display: flex;
   flex-direction: column;
   row-gap: 4px;
-  /* Removed margin and width, handled by parent padding */
 }
 
 .eventDateInfo {
   display: flex;
-  align-items: center; /* Align bar and text */
+  align-items: center;
   column-gap: 9px;
 }
 
 .eventColorBar {
   width: 2px;
-  align-self: stretch; /* Make bar fill height */
-  min-height: 16px; /* Keep min-height */
+  align-self: stretch;
+  min-height: 16px;
   background-color: var(--text-color-light);
 }
 
 .eventDate {
   font-family: "EB Garamond", Helvetica, Arial, serif;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   line-height: 1.25;
   color: var(--text-color-light);
 }
 
 .eventTitle {
-  font-family: "EB Garamond", Helvetica, Arial, serif;
+  font-family: "Now", Helvetica, Arial, serif;
   font-weight: 700;
   font-size: 1.125rem;
   line-height: 1;
   color: white;
+  margin-top:3px;
 }
-
+.eventShortDescription{
+  font-family: 'EB Garamond', serif; color: var(--text-color-light); font-size: 0.9rem; 
+}
 /* --- Gradient Overlays --- */
 .content-wrapper-base::before,
 .content-wrapper-base::after {
@@ -700,253 +622,29 @@ body:not(.preload) .navWrapper {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 0; /* Behind content */
-  background: transparent; /* Default */
+  z-index: 0;
+  background: transparent;
 }
-
-/* Left-to-Right Gradient */
 .content-wrapper-base.gradient-left::before {
-  background: linear-gradient(
-    to right,
-    var(--gradient-color),
-    transparent
-  );
+  background: linear-gradient( to right, var(--gradient-color), transparent );
 }
-
-/* Right-to-Left Gradient */
 .content-wrapper-base.gradient-right::before {
-  background: linear-gradient(
-    to left,
-    var(--gradient-color),
-    transparent
-  );
+  background: linear-gradient( to left, var(--gradient-color), transparent );
 }
-
-/* Full Overlay (Events) */
 .content-wrapper-base.gradient-overlay::before {
   background: var(--gradient-color-events);
 }
-
-/* Bottom Gradient (Events) */
 .content-wrapper-base.gradient-bottom::after {
   background: linear-gradient(to top, var(--gradient-color), transparent);
   height: 50%;
-  top: auto; /* Override top: 0 */
+  top: auto;
   bottom: 0;
 }
 
-
-/* --- Responsive Design --- */
-
-/* Medium Devices (Tablets) */
-/* @media (max-width: 991px) {
-  Adjust text wrapper widths slightly earlier if needed */
-
-
-/* Small Devices (Tablets Landscape / Large Phones) */
-@media (max-width: 991px) {
-  .text-wrapper-base {
-    width: 35%; /* Wider text block */
-  }
-  .section-title-base,
-  .activityTitle,
-  .joinInvite,
-  .therapyQuestion,
-  .eventsTitle {
-    font-size: 1.8rem; /* Smaller titles */
-  }
-  .section-description-base{
-    font-size: 1.1rem; /* Smaller descriptions */
-  }
-  .joinBlockWrapper .separator-base {
-    width: 100%; /* Full width separator */
-  }
-  .joinText { align-items: flex-start; } /* Specific adjustment */
-  .detailsWrapper { width: 50%; }
-  .textImageWrapper { margin-bottom: 3.5rem; }
-  .subtitleText { width: 80%; font-size: 1rem; }
-  /* .scrollDown { bottom: 3rem; } */
-  /* Therapy Specific */
-  /* .therapyLinksWrapper { margin-top: -10px; } */
-  /*.linkBtn { height: 40px; } !* Specific button height *!*/
-  .federationLogo { width: 30px; }
-  .federationText { font-size: 0.85rem; }
-  /* Events Specific */
-  .eventColorBar { min-height: 14px; }
-  .eventDate { font-size: 0.8rem; }
-  .eventTitle { font-size: 1rem; }
-}
-@media(max-width:575px){
-  .imageWrapper{
-    column-gap: 32px;
-  }
-}
-@media(max-height: 550px){
-  .detailsWrapper{
-    width: 40%;
-
-  }
-}
-
-/* Extra Small Devices (Phones Portrait) */
-@media (max-width: 550px) {
-  .content-wrapper-base.gradient-left::before {
-    background: linear-gradient(
-      to top,
-      var(--gradient-color),
-      transparent
-    );
-  }
-
-  /* Right-to-Left Gradient */
-  .content-wrapper-base.gradient-right::before {
-    background: linear-gradient(
-      to top,
-      var(--gradient-color),
-      transparent
-    );
-  }
-  .link{
-    font-size:0.63rem !important;
-  }
-  .joinText{
-    font-size: 0.63rem !important;
-  }
-  .hiddenMobile { display: none; } /* Hide specific elements */
-
-  .text-wrapper-base {
-    width: 88.58%; /* Almost full width */
-    margin: auto 5.71% 10%; /* Adjust bottom margin */
-  }
-  .introImage{
-    height: 40px;
-    margin-top:2px;
-    margin-bottom:2px;
-  }
-  .section-title-base,
-  .activityTitle,
-  .joinInvite,
-  .eventsTitle {
-    font-size: 1.8rem; /* Larger titles on smallest screens? Verify this */
-  }
-  .therapyQuestion{
-    font-size: 1.7rem;
-  }
-  .section-description-base{
-    font-size: 1.125rem; /* Larger descriptions? Verify this */
-  }
-  .detailsWrapper { width: 70%; }
-  .subtitleText { font-size: 1.2rem; } /* Consistent with description? */
-  .therapyTextWrapper { margin: 10% 5.71% auto; row-gap: 8px; }
-  .therapyLinksWrapper { margin-top: 20px; }
-  .linkBtn { width: 100%; } 
-  .eventsTitle { margin-left: 2px; } /* Specific adjustment */
-}
-@media (max-width: 479px) {
-  .imageWrapper { width: 95%;  justify-content: center }
-  .navWrapper{
-    transform: translateX(calc(-95vw / 2 + 50% + 14%));
-  }
-  .link{
-    font-size:0.59rem !important;
-  }
-  .joinText{
-    font-size: 0.59rem !important;
-  }
-}
-/* Tiny Devices */
-@media (max-width: 440px) {
-  .imageWrapper { width: 100%; }
-  .navWrapper{
-    transform: translateX(calc(-100vw / 2 + 50% + 35px));
-  }
-  .introImage, .navWrapper { /* Overrides for tiny layout if needed */
-    position: relative; /* Was unset? */
-    width: auto; /* Adjust width if needed */
-  }
-}
-@media (max-width: 415px){
-  .navWrapper{
-    transform: translateX(calc(-100vw / 2 + 50% + 32px));
-  }
-}
-@media (max-width: 390px){
-  .navWrapper{
-    transform: translateX(calc(-100vw / 2 + 50% + 15px));
-  }
-}
-@media (max-width: 380px){
-  .imageWrapper {
-    column-gap: 18px;
-  }
-  .introImage{
-    height: 35px;
-  }
-  .navWrapper{
-    column-gap: 18px;
-    transform: translateX(calc(-100vw / 2 + 50% + 22px));
-  }
-}
-@media (max-width: 380px){
-  .navWrapper{
-    column-gap: 15px;
-    transform: translateX(calc(-100vw / 2 + 50% + 22px));
-  }
-}
-@media (max-width: 365px){
-  .introImage{
-    height: 33px;
-  }
-  .navWrapper{
-    column-gap: 15px;
-    transform: translateX(calc(-100vw / 2 + 50% + 22px));
-  }
-  .imageWrapper {
-    column-gap: 15px;
-  }
-}
-@media (max-width: 365px){
-  .navWrapper{
-    transform: translateX(calc(-100vw / 2 + 50% + 15px));
-  }
-}
-.eventH1{
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-@media(max-height: 450px){
-  .detailsWrapper{
-    width: 20%;
-    
-  }
-  .subtitleText{
-
-    width: 100%;
-  }
-  .textImageWrapper{
-    row-gap: 5px;
-  }
-  .scrollDown{
-    bottom: 1.5rem;
-  }
-  .section-description-base{
-    font-size: 0.9rem;
-
-  }
-  .section-title-base{
-    font-size: 1.5rem;
-  }
-  .simple-button-base span{
-    font-size: 0.8rem;
-  }
-  .federationLogo { width: 22px; }
-}
-
+/* --- Footer Section Styles --- */
 .footerSection {
-  /* Using the same padding as other major sections for consistency */
-  padding: 80px 5%;
-  background-color: #1a1a1a; /* A dark background for contrast */
+  padding: 80px 0;
+  background-color: #1a1a1a;
   color: var(--text-color-light);
   width: 100%;
 }
@@ -959,53 +657,50 @@ body:not(.preload) .navWrapper {
   align-items: center;
 }
 
-/* Main flex container for all the link items */
 .footerLinksContainer {
   display: flex;
-  flex-wrap: wrap; /* Allows items to wrap onto the next line on smaller screens */
-  justify-content: center; /* Centers the links in the container */
-  gap: 2rem; /* Provides space between link items */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
   width: 100%;
-  margin-bottom: 4rem; /* Space before the copyright text */
+  margin-bottom: 4rem;
 }
 
-/* Individual link item styling */
 .footerLinkItem {
-  display: flex; /* Creates the side-by-side layout for icon and text */
-  align-items: center; /* Vertically centers the icon with the text block [2][7] */
+  display: flex;
+  align-items: center;
   background-color: #2a2a2a;
-  padding: 1.25rem 1.5rem; /* Internal spacing [3] */
+  padding: 1.25rem 1.5rem;
   border-radius: 8px;
   text-decoration: none;
   color: var(--text-color-light);
   min-width: 280px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .footerLinkItem:hover {
   transform: translateY(-5px);
   background-color: #383838;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Icon wrapper on the left */
 .footerIconWrapper i {
-  font-size: 2.5rem; /* Larger icon size */
-  color: var(--primary-accent-color, #ffffff); /* Use a site-wide accent color or default to white */
-  width: 50px; /* Fixed width for alignment */
+  font-size: 2.5rem;
+  color: var(--primary-accent-color, #ffffff);
+  width: 50px;
   text-align: center;
 }
 
-/* Text wrapper on the right */
 .footerTextWrapper {
   display: flex;
-  flex-direction: column; /* Stacks title and description vertically */
-  justify-content: center; /* Vertically centers the text content */
-  align-items: flex-start; /* Aligns text to the left */
-  padding-left: 20px; /* 20px padding from the icon as requested [3] */
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 20px;
 }
 
 .footerLinkTitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Now', sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0;
@@ -1014,14 +709,114 @@ body:not(.preload) .navWrapper {
 .footerLinkDesc {
   font-family: 'EB Garamond', serif;
   font-size: 0.9rem;
-  color: #b0b0b0; /* A lighter color for the description */
+  color: #b0b0b0;
   margin-top: 4px;
 }
 
-/* Copyright notice at the bottom */
 .footerCopyright {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.8rem;
     color: #888;
     text-align: center;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 991px) {
+  .text-wrapper-base { width: 35%; }
+  .section-title-base, .activityTitle, .joinInvite, .therapyQuestion, .eventsTitle { font-size: 1.8rem; }
+  .section-description-base{ font-size: 1.1rem; }
+  .joinBlockWrapper .separator-base { width: 100%; }
+  .joinText { align-items: flex-start; }
+  .detailsWrapper { width: 50%; }
+  .textImageWrapper { margin-bottom: 3.5rem; }
+  .subtitleText { width: 80%; font-size: 1rem; }
+  .federationLogo { width: 30px; }
+  .federationText { font-size: 0.85rem; }
+  .eventColorBar { min-height: 14px; }
+  .eventDate { font-size: 0.8rem; }
+  .eventTitle { font-size: 1rem; }
+}
+
+@media(max-width:575px){
+  .imageWrapper{ column-gap: 32px; }
+}
+
+@media(max-height: 550px){
+  .detailsWrapper{ width: 40%; }
+}
+
+@media (max-width: 550px) {
+  .footerLinksContainer {
+    flex-direction: column; /* Stack the links vertically */
+    align-items: center;   /* Center them horizontally in the column layout */
+  }
+  .content-wrapper-base.gradient-left::before { background: linear-gradient( to top, var(--gradient-color), transparent ); }
+  .content-wrapper-base.gradient-right::before { background: linear-gradient( to top, var(--gradient-color), transparent ); }
+  .link{ font-size:0.63rem !important; }
+  .joinText{ font-size: 0.63rem !important; }
+  .hiddenMobile { display: none; }
+  .text-wrapper-base { width: 88.58%; margin: auto 5.71% 10%; }
+  .introImage{ height: 40px; margin-top:2px; margin-bottom:2px; }
+  .section-title-base, .activityTitle, .joinInvite, .eventsTitle { font-size: 1.8rem; }
+  .therapyQuestion{ font-size: 1.7rem; }
+  .section-description-base{ font-size: 1.125rem; }
+  .detailsWrapper { width: 70%; }
+  .subtitleText { font-size: 1.2rem; }
+  .therapyTextWrapper { margin: 10% 5.71% auto; row-gap: 8px; }
+  .therapyLinksWrapper { margin-top: 20px; }
+  .linkBtn { width: 100%; } 
+  .eventsTitle { margin-left: 2px; }
+}
+
+@media (max-width: 479px) {
+  .imageWrapper { width: 95%;  justify-content: center }
+  .navWrapper{ transform: translateX(calc(-95vw / 2 + 50% + 14%)); }
+  .link{ font-size:0.59rem !important; }
+  .joinText{ font-size: 0.59rem !important; }
+}
+
+@media (max-width: 440px) {
+  .imageWrapper { width: 100%; }
+  .navWrapper{ transform: translateX(calc(-100vw / 2 + 50% + 35px)); }
+  .introImage, .navWrapper { position: relative; width: auto; }
+}
+
+@media (max-width: 415px){
+  .navWrapper{ transform: translateX(calc(-100vw / 2 + 50% + 32px)); }
+}
+
+@media (max-width: 390px){
+  .navWrapper{ transform: translateX(calc(-100vw / 2 + 50% + 15px)); }
+}
+
+@media (max-width: 380px){
+  .imageWrapper { column-gap: 18px; }
+  .introImage{ height: 35px; }
+  .navWrapper{ column-gap: 18px; transform: translateX(calc(-100vw / 2 + 50% + 22px)); }
+}
+
+@media (max-width: 380px){
+  .navWrapper{ column-gap: 15px; transform: translateX(calc(-100vw / 2 + 50% + 22px)); }
+}
+
+@media (max-width: 365px){
+  .introImage{ height: 33px; }
+  .navWrapper{ column-gap: 15px; transform: translateX(calc(-100vw / 2 + 50% + 15px)); }
+  .imageWrapper { column-gap: 15px; }
+}
+
+.eventH1{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+@media(max-height: 450px){
+  .detailsWrapper{ width: 20%; }
+  .subtitleText{ width: 100%; }
+  .textImageWrapper{ row-gap: 5px; }
+  .scrollDown{ bottom: 1.5rem; }
+  .section-description-base{ font-size: 0.9rem; }
+  .section-title-base{ font-size: 1.5rem; }
+  .simple-button-base span{ font-size: 0.8rem; }
+  .federationLogo { width: 22px; }
 }

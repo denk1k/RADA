@@ -12,7 +12,3 @@ links:
     url: "mailto:info@radastudija.lv"
     desc: "info@radastudija.lv"
     icon: "fas fa-envelope"
-  - title: Ziedo
-    url: "/ziedo"
-    desc: "Atbalsti mūsu darbību"
-    icon: "fas fa-hand-holding-heart"
