@@ -39,20 +39,16 @@ collections:
         multiple: true
         create: true
         options: ["Tags", "created", "from", "config.yml"]
-
-  # RESTORED: The 'Events' collection
-  - label: "Events"
-    name: "events"
-    folder: "src/events"
-    create: true
-    editor:
-      preview: false
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Event Date", name: "date", widget: "datetime" }
-      - { label: "Short Description (for card)", name: "description", widget: "string" }
-      - { label: "Event Details (Main Content)", name: "body", widget: "markdown" }
-
+  - label: "Post Listing Page"
+    name: "posts"
+    files:
+      - label: "About Page"
+        name: "about"
+        file: "src/posts.md"
+        fields:
+          - { label: "Body", name: "body", widget: "markdown" } 
+          - { label: "Posts URL", name: "posts", widget: "string" }
+          - { label: "Navigation Order", name: "postsorder", widget: "number" }
   # UPDATED: The 'Settings' collection with dynamic homepage sections
   - label: "Settings"
     name: "settings"
