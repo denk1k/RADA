@@ -21,34 +21,21 @@ collections:
       - { label: "Navigation Order", name: "order", widget: "number", default: 0 }
 
   # RESTORED: The 'Posts' collection for your blog
-  - label: "Posts"
-    name: "blog"
-    folder: "src/posts"
+  - label: "Events"
+    name: "events"
+    folder: "src/events" # Folder where event markdown files will be stored
     create: true
     editor:
-      preview: false
+      preview: false # Keep preview off for now
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
-      - widget: select
-        label: "tags"
-        name: "tags"
-        multiple: true
-        create: true
-        options: ["Tags", "created", "from", "config.yml"]
-  - label: "Post Listing Page"
-    name: "posts"
-    files:
-      - label: "About Page"
-        name: "about"
-        file: "src/posts.md"
-        fields:
-          - { label: "Body", name: "body", widget: "markdown" } 
-          - { label: "Posts URL", name: "posts", widget: "string" }
-          - { label: "Navigation Order", name: "postsorder", widget: "number" }
+      - { label: "Event Date", name: "date", widget: "datetime" }
+      - { label: "Short Description (for card)", name: "description", widget: "string" }
+      # Optional: Add an image field if needed for the event card or page
+      # - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Event Details (Main Content)", name: "body", widget: "markdown" }
+      # Optional: Add navigation order if needed, similar to pages
+      # - { label: "Navigation Order", name: "order", widget: "number", default: 0 }
   # UPDATED: The 'Settings' collection with dynamic homepage sections
   - label: "Settings"
     name: "settings"
