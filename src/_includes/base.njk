@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>{{ title if title else settings.title }}</title>
-  <meta name="description" content="{{ description if description else settings.description }}"> 
+  <meta name="description" content="{{ description if description else settings.description }}">
 </head>
 
 <body class="flex-column preload">
@@ -14,15 +14,19 @@
   <div class="imageWrapper">
     <img class="introImage" src="{{ settings.logo }}" alt="RADA Logo" />
     <div class="navWrapper">
-      <a class="link hiddenMobile" href="/#intro">Home</a>
-      {# IMPORTANT: Update these links to match the slugified titles of your sections #}
-      <a class="link" href="/#par-mums">Par mums</a>
-      <a class="link">Arhivs</a>
-      <a class="link" href="/#events">Aktualitates</a>
-      <button class="joinButton">
-        <span class="joinText">Pievienojies</span>
-      </button>
+      {% for link in settings.navigation.header_links %}
+        {# Add hiddenMobile class to the first link #}
+        <a class="link {% if loop.first %}hiddenMobile{% endif %}" href="{{ link.url }}">{{ link.text }}</a>
+      {% endfor %}
+
+      {% if settings.navigation.join_button and settings.navigation.join_button.url %}
+      <a href="{{ settings.navigation.join_button.url }}" class="joinButton">
+        <span class="joinText">{{ settings.navigation.join_button.text }}</span>
+      </a>
+      {% endif %}
     </div>
+    {# END: MODIFIED SECTION #}
+
   </div>
 </div>
 
@@ -44,7 +48,7 @@
     {% for section in settings.main_sections %}
       {# Determine alignment for the 'default' layout style. Odd sections are left, even are right. #}
       {% set alignment = 'left' if loop.index is odd else 'right' %}
-    
+
       {# --- RENDER SECTION BASED ON LAYOUT STYLE --- #}
 
       {# Option 1: Full Green Overlay Layout (like the old 'Therapy' section) #}
@@ -146,13 +150,13 @@
                 </a>
               {% endfor %}
             {% else %}
-              <p style="color: white;">Nav aktuālu pasākumu.</p> 
+              <p style="color: white;">Nav aktuālu pasākumu.</p>
             {% endif %}
           </div>
         </div>
       </div>
     </section>
-  {% endblock %} 
+  {% endblock %}
 </main>
 
 {# --- Footer Section (Unchanged) --- #}

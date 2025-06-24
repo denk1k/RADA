@@ -12,7 +12,7 @@ collections:
   #   folder: "src/pages"
   #   create: true
   #   editor:
-  #     preview: false    
+  #     preview: false
   #   fields:
   #     - { label: "Title", name: "title", widget: "string" }
   #     - { label: "Author", name: "author", widget: "string" }
@@ -53,7 +53,25 @@ collections:
           - { label: "Default SEO Title", name: "title", widget: "string" }
           - { label: "Default SEO Description", name: "description", widget: "string" }
           - { label: "Default SEO Image", name: "image", widget: "image", allow_multiple: false }
-          
+          - label: "Navigation"
+            name: "navigation"
+            widget: "object"
+            collapsed: false
+            fields:
+              - label: "Header Links"
+                name: "header_links"
+                widget: "list"
+                summary: "{{fields.text}} -> {{fields.url}}"
+                collapsed: false
+                fields:
+                  - { label: "Link Text", name: "text", widget: "string" }
+                  - { label: "Link URL", name: "url", widget: "string" }
+              - label: "Header Join Button"
+                name: "join_button"
+                widget: "object"
+                fields:
+                  - { label: "Button Text", name: "text", widget: "string", default: "Pievienojies" }
+                  - { label: "Button URL", name: "url", widget: "string", default: "#" }
           # --- Intro Section (Static) ---
           - label: "Intro Section"
             name: "intro_section"
@@ -86,7 +104,7 @@ collections:
                 required: false
                 fields:
                   - { label: "Button Text", name: "text", widget: "string", default: "Pievienojies RADA" }
-                  - { label: "Button URL", name: "url", widget: "string", default: "#" }
+                  - { label: "Button URL", name: "url", widget: "string", default: "#join" }
               - label: "Reference Links"
                 name: "reference_links"
                 widget: "list"
