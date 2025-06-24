@@ -78,7 +78,7 @@
 
               {# Optional Join Button #}
               {% if section.show_join_button and section.join_button %}
-                <a href="{{ section.join_button.url }}" class="simple-button-base" style="margin-top: 2rem;">
+                <a href="{{ section.join_button.url }}" class="simple-button-base" style="margin-top: 2rem;" target="_blank">
                   <span>{{ section.join_button.text }}</span>
                 </a>
               {% endif %}
@@ -99,7 +99,7 @@
 
               {# Optional Join Button #}
               {% if section.show_join_button and section.join_button %}
-                <a href="{{ section.join_button.url }}" class="simple-button-base">
+                <a href="{{ section.join_button.url }}" target="_blank" class="simple-button-base">
                   <span>{{ section.join_button.text }}</span>
                 </a>
               {% endif %}
