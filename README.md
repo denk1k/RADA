@@ -1,4 +1,4 @@
-# RADA Studija
+# [RADA Studija](https://radastudija.netlify.app/)
 
 This is a website for a non-profit art therapy studio RADA Studija
 
