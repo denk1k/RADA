@@ -5,18 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
   <link rel="stylesheet" type="text/css" href="./css/style.css" />
-  <!-- Inline style removed - integrated into style.css -->
 </head>
 
 <body class="flex-column">
-<!-- Navbar remains structurally the same, JS relies on .imageTextBlock -->
 <div class="imageTextBlock">
   <div class="imageWrapper">
     <img class="introImage" src="/assets/42a26737161d740770afe9c77af347cc.png" alt="RADA Logo" />
     <div class="navWrapper">
       <a class="link hiddenMobile" href="#intro">Home</a>
       <a class="link" href="#about">Par mums</a>
-      <a class="link">Arhivs</a> <!-- Add href if it links somewhere -->
+      <a class="link">Arhivs</a>
       <a class="link" href="#events">Aktualitates</a>
       <button class="joinButton">
         <span class="joinText">Pievienojies</span>
@@ -101,7 +99,6 @@
           <br /><br />
           RADA mērķis ir sniegt katram drošu vidi, kurā ar mākslu un mākslas terapijas metodēm radoši izpausties un komunicēt, ļaujot ievest mieru mūsu reizēm pārāk steidzīgajās iekdienās.  Aicinām arī Tevi pievienoties kādā no mūsu pasākumiem un ļauties tam siltumam, kuru izstaro kopābūšana!
         </article>
-        <!-- Using simple-button-base -->
         <button class="simple-button-base">
           <span>Pievienoties</span>
         </button>
@@ -110,9 +107,8 @@
   </section>
 
   <section class="therapySection" id="therapy" style="--src:url(/assets/f42078ee1ac7263bf5a104339b4a9189.png)">
-    <!-- Therapy section has unique structure/overlay, less use of base classes -->
     <div class="therapyContentWrapper">
-      <div class="therapyTextWrapper"> <!-- Unique wrapper -->
+      <div class="therapyTextWrapper">
         <div class="therapyMainTextWrapper">
           <p class="therapyQuestion">Kāpēc mākslas terapija?</p> <!-- Uses styling similar to section-title-base -->
           <hr class="separator-base" size="1" /> <!-- Uses base separator -->
@@ -127,14 +123,13 @@
           </article>
         </div>
         <div class="therapyLinksWrapper">
-          <!-- Using base button + linkBtn specific styles -->
-          <a href="#" target="_blank" class="simple-button-base linkBtn" rel="noopener noreferrer"> <!-- Use <a> for links -->
+          <a href="#" target="_blank" class="simple-button-base linkBtn" rel="noopener noreferrer">
             <img class="federationLogo" src="/assets/external-link.svg" alt="External link icon" />
             <span class="federationText">Art therapy federation</span>
           </a>
-          <a href="#" target="_blank" class="simple-button-base linkBtn" rel="noopener noreferrer"> <!-- Use <a> for links -->
+          <a href="#" target="_blank" class="simple-button-base linkBtn" rel="noopener noreferrer">
             <img class="federationLogo" src="/assets/external-link.svg" alt="External link icon" />
-            <span class="federationText">Cits Resurss</span> <!-- Example text -->
+            <span class="federationText">Cits Resurss</span>
           </a>
         </div>
       </div>
@@ -146,7 +141,6 @@
       <div class="eventsMainWrapper"> <!-- Unique wrapper -->
         <p class="eventsTitle">Pasākumu saraksts</p> <!-- Uses styling similar to section-title-base -->
         <div class="eventsListWrapper">
-          <!-- Example Event Card -->
           <div class="eventCard">
             <!-- eventInfoWrapper, eventDateInfo, etc. kept as specific styles -->
             <div class="eventInfoWrapper">
@@ -157,35 +151,30 @@
               <p class="eventTitle">Pastaigas gar juras malu</p>
             </div>
           </div>
-          <!-- Add more eventCard divs as needed -->
         </div>
       </div>
     </div>
   </section>
 
 </main>
-
-<!-- Keep the original script, it targets existing classes -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const imageTextBlock = document.querySelector('.imageTextBlock');
-    const introSection = document.querySelector('.introSection'); // The section to scroll past
+    const introSection = document.querySelector('.introSection');
 
     if (!imageTextBlock || !introSection) {
       console.error("Required elements for navbar animation not found.");
-      return; // Exit if elements aren't found
+      return;
     }
-
-    // Calculate trigger point relative to the intro section's bottom edge meeting the navbar's bottom edge
     const triggerPoint = introSection.offsetTop + introSection.offsetHeight - imageTextBlock.offsetHeight;
 
-    // A simpler alternative: trigger when scrolling past the intro section's height
-    // const triggerPointSimple = introSection.offsetTop + introSection.offsetHeight - (window.innerHeight * 0.1); // Trigger 10% before bottom scrolls past top
+    // trigger when scrolling past the intro section's height
+    // const triggerPointSimple = introSection.offsetTop + introSection.offsetHeight - (window.innerHeight * 0.1);
 
     function handleScroll() {
       const scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
-      // Use the calculated triggerPoint
+      // use calced triggerPoint
       if (scrollY > triggerPoint) {
         if (!imageTextBlock.classList.contains('navbar-scrolled')) {
           imageTextBlock.classList.add('navbar-scrolled');

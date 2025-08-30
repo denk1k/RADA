@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzĀāČčĒēĢģĪīĶķĻļŅņŌōPprRSsŠšUūVvZzŽž&display=swap');/* --- Variables --- */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzĀāČčĒēĢģĪīĶķĻļŅņŌōPprRSsŠšUūVvZzŽž&display=swap');
 :root {
   --navheight: 68px;
   --text-color-light: rgb(247, 244, 237);
@@ -6,12 +6,11 @@
   --text-color-dark-alt: rgb(71, 89, 54);
   --background-light: #edfff4;
   --separator-color: rgb(217, 217, 217);
-  --gradient-color: rgba(72, 89, 56, 1); /* Dark green for gradients */
-  --gradient-color-therapy: rgba(72, 89, 57, 0.698); /* Specific overlay for therapy */
-  --gradient-color-events: rgba(72, 89, 56, 0.35); /* Specific overlay for events */
+  --gradient-color: rgba(72, 89, 56, 1);
+  --gradient-color-therapy: rgba(72, 89, 57, 0.698);
+  --gradient-color-events: rgba(72, 89, 56, 0.35);
 }
 
-/* --- Reset & Base --- */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--navheight);
@@ -166,7 +165,6 @@ section {
   overflow: hidden;
 }
 
-/* --- Fonts --- */
 @font-face {
   font-family: "Now";
   src: url("../assets/Now-Medium.otf") format("opentype");
@@ -175,13 +173,11 @@ section {
   font-family: "Now Regular";
   src: url("../assets/Now-Regular.otf") format("opentype");
 }
-/* --- Utility --- */
 .zUp {
   position: relative;
   z-index: 1;
 }
 
-/* --- Main Layout --- */
 .main-page.mainContainer {
   display: flex;
   flex-direction: column;
@@ -189,7 +185,6 @@ section {
   background-color: var(--background-light);
 }
 
-/* --- Header / Navbar --- */
 .imageTextBlock {
   display: flex;
   position: sticky;
@@ -239,7 +234,7 @@ body:not(.preload) .navWrapper {
   transition: transform 0.5s ease-in-out;
 }
 
-/* Scrolled State for Navbar Animation */
+
 .imageTextBlock.navbar-scrolled .introImage {
   opacity: 1;
   transform: translateX(0);
@@ -288,7 +283,7 @@ body:not(.preload) .navWrapper {
   transition: color 0.3s ease-in-out;
 }
 
-/* --- Intro Section --- */
+
 .introSection {
   position: relative;
   display: flex;
@@ -341,7 +336,7 @@ body:not(.preload) .navWrapper {
   width: 59px;
 }
 
-/* --- Base Section Styles --- */
+
 .section-base {
   display: flex;
   flex-direction: column;
@@ -400,7 +395,7 @@ body:not(.preload) .navWrapper {
   width: 100%;
 }
 
-/* --- Section Specific Styles & Overrides --- */
+
 .aboutDescription { line-height: 1; }
 .whyDescription { line-height: 1; }
 .historyDescription { font-weight: 500; line-height: 1; }
@@ -409,7 +404,7 @@ body:not(.preload) .navWrapper {
 .joinBlockWrapper .separator-base { max-width: 100%; }
 .joinDescription { line-height: 1; }
 
-/* --- Buttons (Simple / Therapy Link) --- */
+
 .simple-button-base {
   display: inline-flex;
   align-items: center;
@@ -427,7 +422,7 @@ body:not(.preload) .navWrapper {
   width: max-content;
   opacity: 1;
   mix-blend-mode: normal;
-  /* MODIFIED: Add transform and box-shadow to transition for smooth animation */
+
   transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -442,7 +437,7 @@ body:not(.preload) .navWrapper {
   background: white;
   border-color: var(--text-color-dark);
   color: var(--text-color-dark);
-  /* NEW: Add transform and shadow for the "lift" effect on hover */
+
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
@@ -461,7 +456,7 @@ body:not(.preload) .navWrapper {
   background-color: rgb(217, 217, 217);
   border-color: transparent;
   color: black;
-  /* NEW: The lift effect is inherited from .simple-button-base:hover */
+
 }
 
 .federationLogo {
@@ -476,7 +471,7 @@ body:not(.preload) .navWrapper {
   font-family: "Now", Helvetica, Arial, serif;
 }
 
-/* --- Therapy Section --- */
+
 .therapySection {
   display: flex;
   flex-direction: column;
@@ -526,7 +521,7 @@ body:not(.preload) .navWrapper {
   margin-top: 10px;
 }
 
-/* --- Events Section --- */
+
 .eventsContentWrapper {
   justify-content: center;
   align-items: center;
@@ -549,17 +544,17 @@ body:not(.preload) .navWrapper {
   row-gap: 1rem;
 }
 
-/* NEW: Add link class for hover targeting */
+
 .eventCardLink {
-  display: block; /* Make the link a block element */
+  display: block;
   text-decoration: none;
-  border-radius: 11px; /* Match the card's border-radius */
-  /* NEW: Add transition for the hover effect */
+  border-radius: 11px;
+
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .eventCardLink:hover {
-  /* NEW: Add the lift and shadow effect to the entire link area */
+
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
@@ -570,7 +565,7 @@ body:not(.preload) .navWrapper {
   background-color: rgba(255, 255, 255, 0.349);
   border-radius: 11px;
   padding: 0.9rem 1.125rem 1rem;
-  /* REMOVED: Transition is now on the parent .eventCardLink */
+
 }
 
 .eventInfoWrapper {
@@ -611,7 +606,7 @@ body:not(.preload) .navWrapper {
 .eventShortDescription{
   font-family: 'EB Garamond', serif; color: var(--text-color-light); font-size: 0.9rem;
 }
-/* --- Gradient Overlays --- */
+
 .content-wrapper-base::before,
 .content-wrapper-base::after {
   content: "";
@@ -640,7 +635,7 @@ body:not(.preload) .navWrapper {
   bottom: 0;
 }
 
-/* --- Footer Section Styles --- */
+
 .footerSection {
   padding: 80px 0;
   background-color: #1a1a1a;
@@ -719,7 +714,7 @@ body:not(.preload) .navWrapper {
     text-align: center;
 }
 
-/* --- Responsive Design --- */
+
 @media (max-width: 991px) {
   .text-wrapper-base { width: 35%; }
   .section-title-base, .activityTitle, .joinInvite, .therapyQuestion, .eventsTitle { font-size: 1.8rem; }
@@ -746,8 +741,8 @@ body:not(.preload) .navWrapper {
 
 @media (max-width: 550px) {
   .footerLinksContainer {
-    flex-direction: column; /* Stack the links vertically */
-    align-items: center;   /* Center them horizontally in the column layout */
+    flex-direction: column;
+    align-items: center;
   }
   .content-wrapper-base.gradient-left::before { background: linear-gradient( to top, var(--gradient-color), transparent ); }
   .content-wrapper-base.gradient-right::before { background: linear-gradient( to top, var(--gradient-color), transparent ); }
@@ -767,7 +762,7 @@ body:not(.preload) .navWrapper {
   .eventsTitle { margin-left: 2px; }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 479px) { /* Oh man I love manual pixel-by-pixel adjustments */
   .imageWrapper { width: 95%;  justify-content: center }
   .navWrapper{ transform: translateX(calc(-95vw / 2 + 50% + 14%)); }
   .link{ font-size:0.59rem !important; }
@@ -793,6 +788,7 @@ body:not(.preload) .navWrapper {
   .introImage{ height: 35px; }
   .navWrapper{ column-gap: 18px; transform: translateX(calc(-100vw / 2 + 50% + 22px)); }
 }
+
 
 @media (max-width: 380px){
   .navWrapper{ column-gap: 15px; transform: translateX(calc(-100vw / 2 + 50% + 22px)); }

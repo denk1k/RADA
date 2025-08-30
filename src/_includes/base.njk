@@ -25,7 +25,6 @@
       </a>
       {% endif %}
     </div>
-    {# END: MODIFIED SECTION #}
 
   </div>
 </div>
@@ -43,15 +42,9 @@
       <img class="scrollDown" src="/static/assets/7dc4ca28cd625bfadee8c1b28599d81c.png" alt="Scroll down" />
     </section>
 
-    {# --- DYNAMIC CONTENT SECTIONS LOOP --- #}
-    {# This single loop now builds all the main content sections of your homepage #}
     {% for section in settings.main_sections %}
-      {# Determine alignment for the 'default' layout style. Odd sections are left, even are right. #}
       {% set alignment = 'left' if loop.index is odd else 'right' %}
 
-      {# --- RENDER SECTION BASED ON LAYOUT STYLE --- #}
-
-      {# Option 1: Full Green Overlay Layout (like the old 'Therapy' section) #}
       {% if section.layout_style == 'full_overlay' %}
         <section id="{{ section.title | slugify }}" class="therapySection" style="--src:url({{ section.background_image }})">
           <div class="therapyContentWrapper">
@@ -86,7 +79,6 @@
           </div>
         </section>
 
-      {# Option 2: Default Alternating Image Layout #}
       {% else %}
         <section id="{{ section.title | slugify }}" class="section-base" style="--src:url({{ section.background_image }})">
           <div class="content-wrapper-base gradient-{{ alignment }}">
@@ -122,7 +114,6 @@
     {% endfor %}
 
 
-    {# --- Events Section (Remains Static) --- #}
     <section class="eventsSection section-base" id="events" style="--src:url(/static/assets/eac0bd2c9d35952d9077cf0d7ed914ac.png)">
       <div class="eventsContentWrapper content-wrapper-base gradient-overlay gradient-bottom">
         <div class="eventsMainWrapper">
@@ -159,7 +150,6 @@
   {% endblock %}
 </main>
 
-{# --- Footer Section (Unchanged) --- #}
 {% if footerlinks.links %}
 <footer class="footerSection" id="footer">
   <div class="footerContentWrapper">
@@ -181,7 +171,6 @@
 </footer>
 {% endif %}
 
-{# --- Scripts (Unchanged) --- #}
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const imageTextBlock = document.querySelector('.imageTextBlock');

@@ -1,6 +1,4 @@
 # FILE: src/_data/settings.yaml
-
-# --- General Site Settings (Unchanged) ---
 logo: /static/img/rada-logo.png
 description: RADA Studija - Vieta, kur radīt, mācīties un just.
 url: radastudija.netlify.app
@@ -23,13 +21,10 @@ navigation:
     text: "Pievienojies"
     url: "#join"
 
-# --- Editable Homepage Sections ---
-# The intro section remains separate as it has a unique layout
 intro_section:
   subtitle: "Vieta, kur radīt, mācīties un just."
   secondary_image: "/static/assets/42a26737161d740770afe9c77af347cc.png"
-
-# NEW: Main content sections are now a list for full customizability
+  
 main_sections:
   - title: "Par Mums"
     layout_style: "default"
