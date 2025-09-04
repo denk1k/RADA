@@ -3,6 +3,7 @@ backend:
   branch: master
 media_folder: "src/static/img"
 public_folder: "/static/img"
+local_backend: true
 
 
 collections:
