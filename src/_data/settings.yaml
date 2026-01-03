@@ -101,7 +101,7 @@ main_sections:
     show_join_button: true
     join_button:
       text: Pievienojies RADA
-      url: "#join"
+      url: https://radastudija.netlify.app/events/xrst/
     reference_links: []
   - title: Kāpēc mākslas terapija?
     layout_style: full_overlay
